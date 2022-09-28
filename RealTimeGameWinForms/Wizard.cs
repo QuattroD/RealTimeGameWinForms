@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace RealTimeGameWinForms
 {
-    class Mage : Unit
+    class Wizard : Unit
     {
-        int Mana;
-        int MaxMana;
 
-        public Mage() : base("Wizard", 60, 4, 40)
         {
-            this.Mana = 1000;
             this.MaxMana = this.Mana;
         }
 

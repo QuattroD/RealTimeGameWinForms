@@ -5,24 +5,27 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace RealTimeGameWinForms
-{ 
+{
+    
     class Unit
     {
         public string name { get; set; }
-        public int health { get; set; }
-        public int MaxHealth { get; set; }
-        public int armor { get; set; }
-        public int damage { get; set; }
+        public double health { get; set; }
+        public double MaxHealth { get; set; }
+        public double armor { get; set; }
+        public double damage { get; set; }
+        public double magicdamage { get; set; }
+        public double manapool { get; set; }
         public bool IsAlive { get; set; }
-        
 
-        public Unit(string name, int health, int armor, int damage)
         {
             this.name = name;
             this.health = health;
             this.MaxHealth = this.health;
             this.damage = damage;
             this.armor = armor;
+            this.manapool = manapool;
+            this.magicdamage = magicdamage;
             this.IsAlive = true;
         }
 
