@@ -164,11 +164,11 @@
             this.UnitsListBox.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.UnitsListBox.FormattingEnabled = true;
             this.UnitsListBox.ItemHeight = 30;
-            this.UnitsListBox.Location = new System.Drawing.Point(176, 201);
+            this.UnitsListBox.Location = new System.Drawing.Point(383, 15);
             this.UnitsListBox.Name = "UnitsListBox";
-            this.UnitsListBox.Size = new System.Drawing.Size(187, 184);
+            this.UnitsListBox.Size = new System.Drawing.Size(347, 184);
             this.UnitsListBox.TabIndex = 12;
-            this.UnitsListBox.Visible = false;
+            this.UnitsListBox.SelectedIndexChanged += new System.EventHandler(this.UnitsListBox_SelectedIndexChanged);
             // 
             // NameLabel
             // 

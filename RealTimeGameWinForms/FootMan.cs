@@ -9,7 +9,7 @@ namespace RealTimeGameWinForms
 {
     class FootMan : Unit
     {
-        public FootMan(string name, double health, double damage, double magicdamage, double armor, double manapool) : base(name, health, damage, magicdamage, armor, manapool)
+        public FootMan(string name, double health, double damage, double magicdamage, double armor, double manapool, double Strength, double Dexterity, double Constitution, double Intellisence) : base(name, health, damage, magicdamage, armor, manapool, Strength, Dexterity, Constitution, Intellisence)
         {
         }
     }

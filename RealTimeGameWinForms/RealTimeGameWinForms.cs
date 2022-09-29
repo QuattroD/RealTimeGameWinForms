@@ -2,6 +2,7 @@ using System.Windows.Forms;
 using System;
 using static System.Net.WebRequestMethods;
 using MongoDB.Driver;
+using System.Xml.Linq;
 
 namespace RealTimeGameWinForms
 {
@@ -10,11 +11,19 @@ namespace RealTimeGameWinForms
         public RealTimeGameWinForms()
         {
             InitializeComponent();
+            /*var client = new MongoClient();
+            var database = client.GetDatabase("Army");
+            var collection = database.GetCollection<Unit>("Units");
+            List<Unit> names = collection.AsQueryable().ToList<Unit>();
+            foreach (var item in names)
+            {
+                UnitsListBox.Items.Add(item.name);
+            }*/
         }
-        MongoDB mongoDB = new MongoDB();
+
+        MongoDB mongoDB = new MongoDB();   
         private void ChoiceUnit_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Avatar.Visible = true;
             switch (ChoiceUnit.SelectedIndex)
             {
                 case 0:
@@ -33,7 +42,7 @@ namespace RealTimeGameWinForms
                     IntellisenceNumeric.Minimum = 10;
                     IntellisenceNumeric.Value = 10;
                     IntellisenceNumeric.Maximum = 50;
-                    Avatar.Load(url: @"https://static.cdprojektred.com/playgwent.com/news/big/playgwent.com_en_1535708549_5b890d852fb152.36885555.jpg");
+                    //Avatar.Load(url: @"https://static.cdprojektred.com/playgwent.com/news/big/playgwent.com_en_1535708549_5b890d852fb152.36885555.jpg");
                     Avatar.SizeMode = PictureBoxSizeMode.StretchImage;
                     break;
 
@@ -53,7 +62,7 @@ namespace RealTimeGameWinForms
                     IntellisenceNumeric.Minimum = 15;
                     IntellisenceNumeric.Value = 15;
                     IntellisenceNumeric.Maximum = 70;
-                    Avatar.Load(url: @"https://staticctf.akamaized.net/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/2EFsSmHHzSOjl3u7zcw1V3/5d4c2b629ca15a6044fda6bbbd6c2d07/acrogue_remastered_hero_mobile_Mobile-v2.jpg");
+                    //Avatar.Load(url: @"https://staticctf.akamaized.net/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/2EFsSmHHzSOjl3u7zcw1V3/5d4c2b629ca15a6044fda6bbbd6c2d07/acrogue_remastered_hero_mobile_Mobile-v2.jpg");
                     Avatar.SizeMode = PictureBoxSizeMode.StretchImage;
                     break;
 
@@ -73,7 +82,7 @@ namespace RealTimeGameWinForms
                     IntellisenceNumeric.Minimum = 35;
                     IntellisenceNumeric.Value = 35;
                     IntellisenceNumeric.Maximum = 250;
-                    Avatar.Load(url: @"http://www.cinema.com.my/images/news/2016/7g_warcraftnew00.jpg");
+                    //Avatar.Load(url: @"http://www.cinema.com.my/images/news/2016/7g_warcraftnew00.jpg");
                     Avatar.SizeMode = PictureBoxSizeMode.StretchImage;
                     break;
             }
@@ -100,7 +109,7 @@ namespace RealTimeGameWinForms
                     TotalMagicDamage = Intellisence;
                     TotalPhysicalDefence = Dexterity + (Constitution * 2);
                     TotalManaPool = Intellisence;
-                    FootMan footman = new FootMan(NametextBox.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool);
+                    FootMan footman = new FootMan(NametextBox.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence);
                     MessageBox.Show($"Имя - {footman.name} \nЗдоровья - {footman.health} \nУрон - {footman.damage} \nМагический урон - {footman.magicdamage} \nБроня - {footman.armor} \nМана - {footman.manapool}", "Юнит создан");
                     mongoDB.AddToDB(footman);
                 break;
@@ -111,7 +120,7 @@ namespace RealTimeGameWinForms
                     TotalMagicDamage = Intellisence * 2;
                     TotalPhysicalDefence = Dexterity * 1.5;
                     TotalManaPool = Intellisence * 1.5;
-                    Rogue rogue = new Rogue(NametextBox.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool);
+                    Rogue rogue = new Rogue(NametextBox.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence);
                     MessageBox.Show($"Имя - {rogue.name} \nЗдоровья - {rogue.health} \nУрон - {rogue.damage} \nМагический урон - {rogue.magicdamage} \nБроня - {rogue.armor} \nМана - {rogue.manapool}", "Юнит создан");
                     mongoDB.AddToDB(rogue);
                 break;
@@ -122,7 +131,7 @@ namespace RealTimeGameWinForms
                     TotalMagicDamage = Intellisence * 5;
                     TotalPhysicalDefence = (Dexterity * 0.5) + Constitution;
                     TotalManaPool = Intellisence * 2;
-                    Wizard wizard = new Wizard(NametextBox.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool);
+                    Wizard wizard = new Wizard(NametextBox.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence);
                     MessageBox.Show($"Имя - {wizard.name} \nЗдоровья - {wizard.health} \nУрон - {wizard.damage} \nМагический урон - {wizard.magicdamage} \nБроня - {wizard.armor} \nМана - {wizard.manapool}", "Юнит создан");
                     mongoDB.AddToDB(wizard);
                 break;
@@ -130,22 +139,49 @@ namespace RealTimeGameWinForms
             var client = new MongoClient();
             var database = client.GetDatabase("Army");
             var collection = database.GetCollection<Unit>("Units");
-            var list = collection.Find(x => true).ToList();
-            foreach (var item in list)
-            {
-                UnitsListBox.Items.Add(item.name);
-            }
-            
+            var one = collection.Find(x => x.name == NametextBox.Text).FirstOrDefault();
+            UnitsListBox.Items.Add(one.name);
+            NametextBox.Text = "";
         }
 
         private void BFind_Click(object sender, EventArgs e)
         {
             mongoDB.Find(FindtextBox.Text);
+            FindtextBox.Text = "";
         }
 
         private void BFindAll_Click(object sender, EventArgs e)
         {
             mongoDB.FindAll();
+        }
+
+        private void UnitsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var client = new MongoClient();
+            var database = client.GetDatabase("Army");
+            var collection = database.GetCollection<Unit>("Units");
+            var one = collection.Find(x => x.name == UnitsListBox.SelectedItem.ToString()).FirstOrDefault();
+            int index = 0;
+            NametextBox.Text = Convert.ToString(one.name);
+            switch(one.GetType().Name)
+            {
+                case "Warrior":
+                    index = 0;
+                break;
+
+                case "Rogue":
+                    index = 1;
+                break;
+
+                case "Wizard":
+                    index = 2;
+                break;
+            }
+            ChoiceUnit.SelectedIndex = index;
+            StrengthNumeric.Value = Convert.ToDecimal(one.Strength);
+            DexterityNumeric.Value = Convert.ToDecimal(one.Dexterity);
+            ConstitutionNumeric.Value = Convert.ToDecimal(one.Constitution);
+            IntellisenceNumeric.Value = Convert.ToDecimal(one.Intellisence);
         }
     }
 }
