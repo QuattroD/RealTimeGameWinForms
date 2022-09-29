@@ -44,6 +44,9 @@
             this.UnitsListBox = new System.Windows.Forms.ListBox();
             this.NameLabel = new System.Windows.Forms.Label();
             this.NametextBox = new System.Windows.Forms.TextBox();
+            this.BFind = new System.Windows.Forms.Button();
+            this.FindtextBox = new System.Windows.Forms.TextBox();
+            this.BFindAll = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.StrengthNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DexterityNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConstitutionNumeric)).BeginInit();
@@ -160,10 +163,13 @@
             // 
             this.UnitsListBox.FormattingEnabled = true;
             this.UnitsListBox.ItemHeight = 15;
+            this.UnitsListBox.Items.AddRange(new object[] {
+            "test"});
             this.UnitsListBox.Location = new System.Drawing.Point(434, 19);
             this.UnitsListBox.Name = "UnitsListBox";
             this.UnitsListBox.Size = new System.Drawing.Size(200, 169);
             this.UnitsListBox.TabIndex = 12;
+            this.UnitsListBox.Visible = false;
             // 
             // NameLabel
             // 
@@ -181,6 +187,33 @@
             this.NametextBox.Size = new System.Drawing.Size(120, 23);
             this.NametextBox.TabIndex = 15;
             // 
+            // BFind
+            // 
+            this.BFind.Location = new System.Drawing.Point(12, 383);
+            this.BFind.Name = "BFind";
+            this.BFind.Size = new System.Drawing.Size(75, 23);
+            this.BFind.TabIndex = 16;
+            this.BFind.Text = "Find";
+            this.BFind.UseVisualStyleBackColor = true;
+            this.BFind.Click += new System.EventHandler(this.BFind_Click);
+            // 
+            // FindtextBox
+            // 
+            this.FindtextBox.Location = new System.Drawing.Point(12, 354);
+            this.FindtextBox.Name = "FindtextBox";
+            this.FindtextBox.Size = new System.Drawing.Size(120, 23);
+            this.FindtextBox.TabIndex = 17;
+            // 
+            // BFindAll
+            // 
+            this.BFindAll.Location = new System.Drawing.Point(12, 412);
+            this.BFindAll.Name = "BFindAll";
+            this.BFindAll.Size = new System.Drawing.Size(75, 23);
+            this.BFindAll.TabIndex = 18;
+            this.BFindAll.Text = "FindAll";
+            this.BFindAll.UseVisualStyleBackColor = true;
+            this.BFindAll.Click += new System.EventHandler(this.BFindAll_Click);
+            // 
             // RealTimeGameWinForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -188,6 +221,9 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(770, 482);
+            this.Controls.Add(this.BFindAll);
+            this.Controls.Add(this.FindtextBox);
+            this.Controls.Add(this.BFind);
             this.Controls.Add(this.NametextBox);
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.UnitsListBox);
@@ -233,5 +269,8 @@
         private ListBox UnitsListBox;
         private Label NameLabel;
         private TextBox NametextBox;
+        private Button BFind;
+        private TextBox FindtextBox;
+        private Button BFindAll;
     }
 }

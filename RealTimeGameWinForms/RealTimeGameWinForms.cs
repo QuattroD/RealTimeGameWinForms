@@ -1,6 +1,7 @@
 using System.Windows.Forms;
 using System;
 using static System.Net.WebRequestMethods;
+using MongoDB.Driver;
 
 namespace RealTimeGameWinForms
 {
@@ -10,7 +11,7 @@ namespace RealTimeGameWinForms
         {
             InitializeComponent();
         }
-
+        MongoDB mongoDB = new MongoDB();
         private void ChoiceUnit_SelectedIndexChanged(object sender, EventArgs e)
         {
             Avatar.Visible = true;
@@ -32,7 +33,7 @@ namespace RealTimeGameWinForms
                     IntellisenceNumeric.Minimum = 10;
                     IntellisenceNumeric.Value = 10;
                     IntellisenceNumeric.Maximum = 50;
-                    Avatar.Load(@"C:\Users\vnsxd\Desktop\Other\C#\RealTimeGameWinForms\warrior.gif");
+                    Avatar.Load(url: @"https://static.cdprojektred.com/playgwent.com/news/big/playgwent.com_en_1535708549_5b890d852fb152.36885555.jpg");
                     Avatar.SizeMode = PictureBoxSizeMode.StretchImage;
                     break;
 
@@ -52,7 +53,7 @@ namespace RealTimeGameWinForms
                     IntellisenceNumeric.Minimum = 15;
                     IntellisenceNumeric.Value = 15;
                     IntellisenceNumeric.Maximum = 70;
-                    Avatar.Load(@"C:\Users\vnsxd\Desktop\Other\C#\RealTimeGameWinForms\rogue.gif");
+                    Avatar.Load(url: @"https://staticctf.akamaized.net/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/2EFsSmHHzSOjl3u7zcw1V3/5d4c2b629ca15a6044fda6bbbd6c2d07/acrogue_remastered_hero_mobile_Mobile-v2.jpg");
                     Avatar.SizeMode = PictureBoxSizeMode.StretchImage;
                     break;
 
@@ -72,7 +73,7 @@ namespace RealTimeGameWinForms
                     IntellisenceNumeric.Minimum = 35;
                     IntellisenceNumeric.Value = 35;
                     IntellisenceNumeric.Maximum = 250;
-                    Avatar.Load(@"C:\Users\vnsxd\Desktop\Other\C#\RealTimeGameWinForms\wizard.gif");
+                    Avatar.Load(url: @"http://www.cinema.com.my/images/news/2016/7g_warcraftnew00.jpg");
                     Avatar.SizeMode = PictureBoxSizeMode.StretchImage;
                     break;
             }
@@ -80,7 +81,7 @@ namespace RealTimeGameWinForms
 
         public void Create_Click(object sender, EventArgs e)
         {
-            MongoDB mongoDB = new MongoDB();
+            UnitsListBox.Visible = true;
             double Strength = Convert.ToDouble(StrengthNumeric.Value);
             double Dexterity = Convert.ToDouble(DexterityNumeric.Value);
             double Constitution = Convert.ToDouble(ConstitutionNumeric.Value);
@@ -125,8 +126,17 @@ namespace RealTimeGameWinForms
                     MessageBox.Show($"Имя - {wizard.name} \nЗдоровья - {wizard.health} \nУрон - {wizard.damage} \nМагический урон - {wizard.magicdamage} \nБроня - {wizard.armor} \nМана - {wizard.manapool}", "Юнит создан");
                     mongoDB.AddToDB(wizard);
                 break;
-            }
+            }          
         }
 
+        private void BFind_Click(object sender, EventArgs e)
+        {
+            mongoDB.Find(FindtextBox.Text);
+        }
+
+        private void BFindAll_Click(object sender, EventArgs e)
+        {
+            mongoDB.FindAll();
+        }
     }
 }

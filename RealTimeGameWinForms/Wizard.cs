@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,9 @@ namespace RealTimeGameWinForms
 {
     class Wizard : Unit
     {
-
+        public Wizard(string name, double health, double damage, double magicdamage, double armor, double manapool) : base(name, health, damage, magicdamage, armor, manapool)
         {
-            this.MaxMana = this.Mana;
+            MaxMana = manapool;
         }
 
         public void Fireboal(Unit unit)
@@ -28,11 +29,11 @@ namespace RealTimeGameWinForms
 
         public void treatment(Unit unit)
         {
-            if ((unit.MaxHealth - unit.health) * 6 < this.Mana)
+            if ((unit.MaxHealth - unit.health) * 6 < this.manapool)
             {
-                this.Mana -= (unit.MaxHealth - unit.health) * 6;
+                this.manapool -= (unit.MaxHealth - unit.health) * 6;
                 unit.health += unit.MaxHealth - unit.health;
-                Console.WriteLine(this.Mana);
+                Console.WriteLine(this.manapool);
                 Console.WriteLine($"the {unit.name} has hp={unit.health} heal");
             }
 
