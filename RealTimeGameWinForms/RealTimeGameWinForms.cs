@@ -126,7 +126,16 @@ namespace RealTimeGameWinForms
                     MessageBox.Show($"Имя - {wizard.name} \nЗдоровья - {wizard.health} \nУрон - {wizard.damage} \nМагический урон - {wizard.magicdamage} \nБроня - {wizard.armor} \nМана - {wizard.manapool}", "Юнит создан");
                     mongoDB.AddToDB(wizard);
                 break;
-            }          
+            }
+            var client = new MongoClient();
+            var database = client.GetDatabase("Army");
+            var collection = database.GetCollection<Unit>("Units");
+            var list = collection.Find(x => true).ToList();
+            foreach (var item in list)
+            {
+                UnitsListBox.Items.Add(item.name);
+            }
+            
         }
 
         private void BFind_Click(object sender, EventArgs e)
