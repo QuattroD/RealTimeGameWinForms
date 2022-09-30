@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace RealTimeGameWinForms
 {
-    class FootMan : Unit
+    class Warrior : Unit
     {
-        public FootMan(string name, double health, double damage, double magicdamage, double armor, double manapool, double Strength, double Dexterity, double Constitution, double Intellisence) : base(name, health, damage, magicdamage, armor, manapool, Strength, Dexterity, Constitution, Intellisence)
+        public Warrior(string name, double health, double damage, double magicdamage, double armor, double manapool, double Strength, double Dexterity, double Constitution, double Intellisence) : base(name, health, damage, magicdamage, armor, manapool, Strength, Dexterity, Constitution, Intellisence)
         {
         }
     }

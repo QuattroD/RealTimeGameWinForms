@@ -3,11 +3,23 @@ using System;
 using static System.Net.WebRequestMethods;
 using MongoDB.Driver;
 using System.Xml.Linq;
+using System.Security.Policy;
+using MongoDB.Bson.Serialization;
+using System.Security.AccessControl;
 
 namespace RealTimeGameWinForms
 {
     public partial class RealTimeGameWinForms : Form
     {
+        double TotalHealth;
+        double TotalDamage;
+        double TotalMagicDamage;
+        double TotalPhysicalDefence;
+        double TotalManaPool;
+        double Strength = 0;
+        double Dexterity = 0;
+        double Constitution = 0;
+        double Intellisence = 0;
         public RealTimeGameWinForms()
         {
             InitializeComponent();
@@ -28,78 +40,86 @@ namespace RealTimeGameWinForms
             {
                 case 0:
                     StrengthNumeric.Minimum = 30;
-                    StrengthNumeric.Value = 30;
                     StrengthNumeric.Maximum = 250;
+                    StrengthNumeric.Value = 30;
+                    
 
                     DexterityNumeric.Minimum = 15;
-                    DexterityNumeric.Value = 15;
                     DexterityNumeric.Maximum = 70;
+                    DexterityNumeric.Value = 15;
+                    
 
                     ConstitutionNumeric.Minimum = 20;
-                    ConstitutionNumeric.Value = 20;
                     ConstitutionNumeric.Maximum = 100;
+                    ConstitutionNumeric.Value = 20;
+                    
 
                     IntellisenceNumeric.Minimum = 10;
-                    IntellisenceNumeric.Value = 10;
                     IntellisenceNumeric.Maximum = 50;
+                    IntellisenceNumeric.Value = 10;
+                    
                     //Avatar.Load(url: @"https://static.cdprojektred.com/playgwent.com/news/big/playgwent.com_en_1535708549_5b890d852fb152.36885555.jpg");
                     Avatar.SizeMode = PictureBoxSizeMode.StretchImage;
                     break;
 
                 case 1:
                     StrengthNumeric.Minimum = 15;
-                    StrengthNumeric.Value = 15;
                     StrengthNumeric.Maximum = 55;
+                    StrengthNumeric.Value = 15;
+                    
 
                     DexterityNumeric.Minimum = 30;
-                    DexterityNumeric.Value = 30;
                     DexterityNumeric.Maximum = 250;
+                    DexterityNumeric.Value = 30;
+                    
 
                     ConstitutionNumeric.Minimum = 20;
-                    ConstitutionNumeric.Value = 20;
                     ConstitutionNumeric.Maximum = 80;
+                    ConstitutionNumeric.Value = 20;
+                    
 
                     IntellisenceNumeric.Minimum = 15;
-                    IntellisenceNumeric.Value = 15;
                     IntellisenceNumeric.Maximum = 70;
+                    IntellisenceNumeric.Value = 15;
+                    
                     //Avatar.Load(url: @"https://staticctf.akamaized.net/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/2EFsSmHHzSOjl3u7zcw1V3/5d4c2b629ca15a6044fda6bbbd6c2d07/acrogue_remastered_hero_mobile_Mobile-v2.jpg");
                     Avatar.SizeMode = PictureBoxSizeMode.StretchImage;
                     break;
 
                 case 2:
                     StrengthNumeric.Minimum = 10;
-                    StrengthNumeric.Value = 10;
                     StrengthNumeric.Maximum = 45;
+                    StrengthNumeric.Value = 10;
+                    
 
                     DexterityNumeric.Minimum = 20;
-                    DexterityNumeric.Value = 20;
                     DexterityNumeric.Maximum = 70;
+                    DexterityNumeric.Value = 20;
+                    
 
                     ConstitutionNumeric.Minimum = 15;
-                    ConstitutionNumeric.Value = 15;
                     ConstitutionNumeric.Maximum = 60;
+                    ConstitutionNumeric.Value = 15;
+                    
 
                     IntellisenceNumeric.Minimum = 35;
-                    IntellisenceNumeric.Value = 35;
                     IntellisenceNumeric.Maximum = 250;
+                    IntellisenceNumeric.Value = 35;
+                    
                     //Avatar.Load(url: @"http://www.cinema.com.my/images/news/2016/7g_warcraftnew00.jpg");
                     Avatar.SizeMode = PictureBoxSizeMode.StretchImage;
                     break;
             }
         }
 
-        public void Create_Click(object sender, EventArgs e)
+        private void Create_Click(object sender, EventArgs e)
         {
             UnitsListBox.Visible = true;
-            double Strength = Convert.ToDouble(StrengthNumeric.Value);
-            double Dexterity = Convert.ToDouble(DexterityNumeric.Value);
-            double Constitution = Convert.ToDouble(ConstitutionNumeric.Value);
-            double Intellisence = Convert.ToDouble(IntellisenceNumeric.Value);
-            double TotalHealth;
-            double TotalDamage;
-            double TotalMagicDamage;
-            double TotalPhysicalDefence;
-            double TotalManaPool;
+            Strength = Convert.ToDouble(StrengthNumeric.Value);
+            Dexterity = Convert.ToDouble(DexterityNumeric.Value);
+            Constitution = Convert.ToDouble(ConstitutionNumeric.Value);
+            Intellisence = Convert.ToDouble(IntellisenceNumeric.Value);
+            
             
             switch (ChoiceUnit.SelectedIndex)
             {
@@ -109,10 +129,11 @@ namespace RealTimeGameWinForms
                     TotalMagicDamage = Intellisence;
                     TotalPhysicalDefence = Dexterity + (Constitution * 2);
                     TotalManaPool = Intellisence;
-                    FootMan footman = new FootMan(NametextBox.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence);
-                    MessageBox.Show($"Имя - {footman.name} \nЗдоровья - {footman.health} \nУрон - {footman.damage} \nМагический урон - {footman.magicdamage} \nБроня - {footman.armor} \nМана - {footman.manapool}", "Юнит создан");
-                    mongoDB.AddToDB(footman);
-                break;
+                    Warrior warrior = new Warrior(NametextBox.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence);
+                    MessageBox.Show($"Имя - {warrior.name} \nЗдоровья - {warrior.health} \nУрон - {warrior.damage} \nМагический урон - {warrior.magicdamage} \nБроня - {warrior.armor} \nМана - {warrior.manapool}", "Юнит создан");
+                    warrior.AddItem(new Item(ItemtextBox.Text, int.Parse(Counttextbox.Text)));
+                    mongoDB.AddToDB(warrior);
+                    break;
 
                 case 1:
                     TotalHealth = Strength + (Constitution * 6);
@@ -122,8 +143,9 @@ namespace RealTimeGameWinForms
                     TotalManaPool = Intellisence * 1.5;
                     Rogue rogue = new Rogue(NametextBox.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence);
                     MessageBox.Show($"Имя - {rogue.name} \nЗдоровья - {rogue.health} \nУрон - {rogue.damage} \nМагический урон - {rogue.magicdamage} \nБроня - {rogue.armor} \nМана - {rogue.manapool}", "Юнит создан");
+                    rogue.AddItem(new Item(ItemtextBox.Text, int.Parse(Counttextbox.Text)));
                     mongoDB.AddToDB(rogue);
-                break;
+                    break;
 
                 case 2:
                     TotalHealth = Strength + (Constitution * 3);
@@ -132,9 +154,10 @@ namespace RealTimeGameWinForms
                     TotalPhysicalDefence = (Dexterity * 0.5) + Constitution;
                     TotalManaPool = Intellisence * 2;
                     Wizard wizard = new Wizard(NametextBox.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence);
-                    MessageBox.Show($"Имя - {wizard.name} \nЗдоровья - {wizard.health} \nУрон - {wizard.damage} \nМагический урон - {wizard.magicdamage} \nБроня - {wizard.armor} \nМана - {wizard.manapool}", "Юнит создан");
+                    MessageBox.Show($"Имя - {wizard.name} \nЗдоровья - {wizard.health} \nУрон - {wizard.damage} \nМагический урон - {wizard.magicdamage} \nБроня - {wizard.armor} \nМана - {wizard.manapool}", "Юнит создан");                   
+                    wizard.AddItem(new Item(ItemtextBox.Text, int.Parse(Counttextbox.Text)));
                     mongoDB.AddToDB(wizard);
-                break;
+                    break;
             }
             var client = new MongoClient();
             var database = client.GetDatabase("Army");
@@ -182,6 +205,15 @@ namespace RealTimeGameWinForms
             DexterityNumeric.Value = Convert.ToDecimal(one.Dexterity);
             ConstitutionNumeric.Value = Convert.ToDecimal(one.Constitution);
             IntellisenceNumeric.Value = Convert.ToDecimal(one.Intellisence);
+        }
+
+        private void BChange_Click(object sender, EventArgs e)
+        {
+            Unit unit = new Unit(NametextBox.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence);
+            var client = new MongoClient();
+            var database = client.GetDatabase("Army");
+            var collection = database.GetCollection<Unit>("Units");
+            collection.ReplaceOne(x => x.name == UnitsListBox.ToString(), unit);
         }
     }
 }

@@ -26,7 +26,8 @@ namespace RealTimeGameWinForms
         public double Constitution { get; set; }
         public double Intellisence { get; set; }
         public bool IsAlive { get; set; }
-        
+        public List<Item> Items { get; set; }
+
         public Unit(string name, double health, double damage, double magicdamage, double armor, double manapool, double Strength, double Dexterity, double Constitution, double Intellisence)
         {
             this.name = name;
@@ -42,8 +43,14 @@ namespace RealTimeGameWinForms
             this.Dexterity = Dexterity;
             this.Constitution = Constitution;
             this.Intellisence = Intellisence;
+            Items = new List<Item>();
         }
-        
+
+        public void AddItem(Item item)
+        {
+            Items.Add(item);
+        }
+
         public void Attack(Unit unit)
         {
             if (unit.health - damage > 0)

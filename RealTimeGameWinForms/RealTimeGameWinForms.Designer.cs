@@ -47,6 +47,13 @@
             this.BFind = new System.Windows.Forms.Button();
             this.FindtextBox = new System.Windows.Forms.TextBox();
             this.BFindAll = new System.Windows.Forms.Button();
+            this.Pointstextbox = new System.Windows.Forms.TextBox();
+            this.ItemtextBox = new System.Windows.Forms.TextBox();
+            this.ItemLabel = new System.Windows.Forms.Label();
+            this.Counttextbox = new System.Windows.Forms.TextBox();
+            this.Countlabel = new System.Windows.Forms.Label();
+            this.BAdd = new System.Windows.Forms.Button();
+            this.BChange = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.StrengthNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DexterityNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConstitutionNumeric)).BeginInit();
@@ -70,9 +77,12 @@
             // ChoiceUnitLabel
             // 
             this.ChoiceUnitLabel.AutoSize = true;
-            this.ChoiceUnitLabel.Location = new System.Drawing.Point(12, 15);
+            this.ChoiceUnitLabel.BackColor = System.Drawing.Color.Transparent;
+            this.ChoiceUnitLabel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ChoiceUnitLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ChoiceUnitLabel.Location = new System.Drawing.Point(12, 10);
             this.ChoiceUnitLabel.Name = "ChoiceUnitLabel";
-            this.ChoiceUnitLabel.Size = new System.Drawing.Size(68, 15);
+            this.ChoiceUnitLabel.Size = new System.Drawing.Size(83, 20);
             this.ChoiceUnitLabel.TabIndex = 1;
             this.ChoiceUnitLabel.Text = "Choice unit";
             // 
@@ -86,18 +96,24 @@
             // StrengthLabel
             // 
             this.StrengthLabel.AutoSize = true;
-            this.StrengthLabel.Location = new System.Drawing.Point(12, 115);
+            this.StrengthLabel.BackColor = System.Drawing.Color.Transparent;
+            this.StrengthLabel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.StrengthLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.StrengthLabel.Location = new System.Drawing.Point(12, 110);
             this.StrengthLabel.Name = "StrengthLabel";
-            this.StrengthLabel.Size = new System.Drawing.Size(52, 15);
+            this.StrengthLabel.Size = new System.Drawing.Size(65, 20);
             this.StrengthLabel.TabIndex = 3;
             this.StrengthLabel.Text = "Strength";
             // 
             // DexterityLabel
             // 
             this.DexterityLabel.AutoSize = true;
-            this.DexterityLabel.Location = new System.Drawing.Point(12, 170);
+            this.DexterityLabel.BackColor = System.Drawing.Color.Transparent;
+            this.DexterityLabel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DexterityLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DexterityLabel.Location = new System.Drawing.Point(12, 165);
             this.DexterityLabel.Name = "DexterityLabel";
-            this.DexterityLabel.Size = new System.Drawing.Size(54, 15);
+            this.DexterityLabel.Size = new System.Drawing.Size(69, 20);
             this.DexterityLabel.TabIndex = 5;
             this.DexterityLabel.Text = "Dexterity";
             // 
@@ -111,9 +127,12 @@
             // ConnstitutionLabel
             // 
             this.ConnstitutionLabel.AutoSize = true;
-            this.ConnstitutionLabel.Location = new System.Drawing.Point(12, 224);
+            this.ConnstitutionLabel.BackColor = System.Drawing.Color.Transparent;
+            this.ConnstitutionLabel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ConnstitutionLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ConnstitutionLabel.Location = new System.Drawing.Point(12, 219);
             this.ConnstitutionLabel.Name = "ConnstitutionLabel";
-            this.ConnstitutionLabel.Size = new System.Drawing.Size(73, 15);
+            this.ConnstitutionLabel.Size = new System.Drawing.Size(89, 20);
             this.ConnstitutionLabel.TabIndex = 7;
             this.ConnstitutionLabel.Text = "Constitution";
             // 
@@ -127,9 +146,12 @@
             // IntellisenceLabel
             // 
             this.IntellisenceLabel.AutoSize = true;
-            this.IntellisenceLabel.Location = new System.Drawing.Point(12, 278);
+            this.IntellisenceLabel.BackColor = System.Drawing.Color.Transparent;
+            this.IntellisenceLabel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.IntellisenceLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.IntellisenceLabel.Location = new System.Drawing.Point(12, 273);
             this.IntellisenceLabel.Name = "IntellisenceLabel";
-            this.IntellisenceLabel.Size = new System.Drawing.Size(66, 15);
+            this.IntellisenceLabel.Size = new System.Drawing.Size(83, 20);
             this.IntellisenceLabel.TabIndex = 9;
             this.IntellisenceLabel.Text = "Intellisence";
             // 
@@ -142,9 +164,9 @@
             // 
             // Create
             // 
-            this.Create.Location = new System.Drawing.Point(12, 325);
+            this.Create.Location = new System.Drawing.Point(10, 386);
             this.Create.Name = "Create";
-            this.Create.Size = new System.Drawing.Size(75, 23);
+            this.Create.Size = new System.Drawing.Size(52, 23);
             this.Create.TabIndex = 10;
             this.Create.Text = "Create";
             this.Create.UseVisualStyleBackColor = true;
@@ -152,30 +174,34 @@
             // 
             // Avatar
             // 
-            this.Avatar.Location = new System.Drawing.Point(176, 15);
+            this.Avatar.Location = new System.Drawing.Point(139, 10);
             this.Avatar.Name = "Avatar";
-            this.Avatar.Size = new System.Drawing.Size(187, 180);
+            this.Avatar.Size = new System.Drawing.Size(187, 184);
             this.Avatar.TabIndex = 11;
             this.Avatar.TabStop = false;
             this.Avatar.Visible = false;
             // 
             // UnitsListBox
             // 
+            this.UnitsListBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.UnitsListBox.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.UnitsListBox.FormattingEnabled = true;
             this.UnitsListBox.ItemHeight = 30;
-            this.UnitsListBox.Location = new System.Drawing.Point(383, 15);
+            this.UnitsListBox.Location = new System.Drawing.Point(332, 10);
             this.UnitsListBox.Name = "UnitsListBox";
-            this.UnitsListBox.Size = new System.Drawing.Size(347, 184);
+            this.UnitsListBox.Size = new System.Drawing.Size(215, 184);
             this.UnitsListBox.TabIndex = 12;
             this.UnitsListBox.SelectedIndexChanged += new System.EventHandler(this.UnitsListBox_SelectedIndexChanged);
             // 
             // NameLabel
             // 
             this.NameLabel.AutoSize = true;
-            this.NameLabel.Location = new System.Drawing.Point(12, 65);
+            this.NameLabel.BackColor = System.Drawing.Color.Transparent;
+            this.NameLabel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.NameLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.NameLabel.Location = new System.Drawing.Point(12, 60);
             this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(39, 15);
+            this.NameLabel.Size = new System.Drawing.Size(49, 20);
             this.NameLabel.TabIndex = 14;
             this.NameLabel.Text = "Name";
             // 
@@ -188,9 +214,9 @@
             // 
             // BFind
             // 
-            this.BFind.Location = new System.Drawing.Point(12, 383);
+            this.BFind.Location = new System.Drawing.Point(10, 444);
             this.BFind.Name = "BFind";
-            this.BFind.Size = new System.Drawing.Size(75, 23);
+            this.BFind.Size = new System.Drawing.Size(52, 23);
             this.BFind.TabIndex = 16;
             this.BFind.Text = "Find";
             this.BFind.UseVisualStyleBackColor = true;
@@ -198,20 +224,87 @@
             // 
             // FindtextBox
             // 
-            this.FindtextBox.Location = new System.Drawing.Point(12, 354);
+            this.FindtextBox.Location = new System.Drawing.Point(10, 415);
             this.FindtextBox.Name = "FindtextBox";
             this.FindtextBox.Size = new System.Drawing.Size(120, 23);
             this.FindtextBox.TabIndex = 17;
             // 
             // BFindAll
             // 
-            this.BFindAll.Location = new System.Drawing.Point(12, 412);
+            this.BFindAll.Location = new System.Drawing.Point(68, 444);
             this.BFindAll.Name = "BFindAll";
-            this.BFindAll.Size = new System.Drawing.Size(75, 23);
+            this.BFindAll.Size = new System.Drawing.Size(62, 23);
             this.BFindAll.TabIndex = 18;
             this.BFindAll.Text = "FindAll";
             this.BFindAll.UseVisualStyleBackColor = true;
             this.BFindAll.Click += new System.EventHandler(this.BFindAll_Click);
+            // 
+            // Pointstextbox
+            // 
+            this.Pointstextbox.Cursor = System.Windows.Forms.Cursors.No;
+            this.Pointstextbox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Pointstextbox.Location = new System.Drawing.Point(208, 278);
+            this.Pointstextbox.Multiline = true;
+            this.Pointstextbox.Name = "Pointstextbox";
+            this.Pointstextbox.Size = new System.Drawing.Size(50, 50);
+            this.Pointstextbox.TabIndex = 19;
+            // 
+            // ItemtextBox
+            // 
+            this.ItemtextBox.Location = new System.Drawing.Point(10, 352);
+            this.ItemtextBox.Name = "ItemtextBox";
+            this.ItemtextBox.Size = new System.Drawing.Size(67, 23);
+            this.ItemtextBox.TabIndex = 22;
+            // 
+            // ItemLabel
+            // 
+            this.ItemLabel.AutoSize = true;
+            this.ItemLabel.BackColor = System.Drawing.Color.Transparent;
+            this.ItemLabel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ItemLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ItemLabel.Location = new System.Drawing.Point(10, 329);
+            this.ItemLabel.Name = "ItemLabel";
+            this.ItemLabel.Size = new System.Drawing.Size(39, 20);
+            this.ItemLabel.TabIndex = 21;
+            this.ItemLabel.Text = "Item";
+            // 
+            // Counttextbox
+            // 
+            this.Counttextbox.Location = new System.Drawing.Point(83, 352);
+            this.Counttextbox.Name = "Counttextbox";
+            this.Counttextbox.Size = new System.Drawing.Size(50, 23);
+            this.Counttextbox.TabIndex = 24;
+            // 
+            // Countlabel
+            // 
+            this.Countlabel.AutoSize = true;
+            this.Countlabel.BackColor = System.Drawing.Color.Transparent;
+            this.Countlabel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Countlabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Countlabel.Location = new System.Drawing.Point(83, 329);
+            this.Countlabel.Name = "Countlabel";
+            this.Countlabel.Size = new System.Drawing.Size(48, 20);
+            this.Countlabel.TabIndex = 23;
+            this.Countlabel.Text = "Count";
+            // 
+            // BAdd
+            // 
+            this.BAdd.Location = new System.Drawing.Point(324, 375);
+            this.BAdd.Name = "BAdd";
+            this.BAdd.Size = new System.Drawing.Size(67, 23);
+            this.BAdd.TabIndex = 25;
+            this.BAdd.Text = "Add";
+            this.BAdd.UseVisualStyleBackColor = true;
+            // 
+            // BChange
+            // 
+            this.BChange.Location = new System.Drawing.Point(71, 386);
+            this.BChange.Name = "BChange";
+            this.BChange.Size = new System.Drawing.Size(62, 23);
+            this.BChange.TabIndex = 26;
+            this.BChange.Text = "Change";
+            this.BChange.UseVisualStyleBackColor = true;
+            this.BChange.Click += new System.EventHandler(this.BChange_Click);
             // 
             // RealTimeGameWinForms
             // 
@@ -219,7 +312,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(770, 482);
+            this.ClientSize = new System.Drawing.Size(770, 561);
+            this.Controls.Add(this.BChange);
+            this.Controls.Add(this.BAdd);
+            this.Controls.Add(this.Counttextbox);
+            this.Controls.Add(this.Countlabel);
+            this.Controls.Add(this.ItemtextBox);
+            this.Controls.Add(this.ItemLabel);
+            this.Controls.Add(this.Pointstextbox);
             this.Controls.Add(this.BFindAll);
             this.Controls.Add(this.FindtextBox);
             this.Controls.Add(this.BFind);
@@ -271,5 +371,12 @@
         private Button BFind;
         private TextBox FindtextBox;
         private Button BFindAll;
+        private TextBox Pointstextbox;
+        private TextBox ItemtextBox;
+        private Label ItemLabel;
+        private TextBox Counttextbox;
+        private Label Countlabel;
+        private Button BAdd;
+        private Button BChange;
     }
 }
