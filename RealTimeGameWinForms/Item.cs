@@ -8,13 +8,11 @@ namespace RealTimeGameWinForms
 {
     class Item
     {
-        public Item(string itemName, int itemCount)
+        public Item(string itemName)
         {
             ItemName = itemName;
-            ItemCount = itemCount;
         }
 
         public string ItemName { get; set; }
-        public int ItemCount { get; set; }
     }
 }

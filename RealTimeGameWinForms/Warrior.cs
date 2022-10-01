@@ -9,7 +9,7 @@ namespace RealTimeGameWinForms
 {
     class Warrior : Unit
     {
-        public Warrior(string name, double health, double damage, double magicdamage, double armor, double manapool, double Strength, double Dexterity, double Constitution, double Intellisence) : base(name, health, damage, magicdamage, armor, manapool, Strength, Dexterity, Constitution, Intellisence)
+        public Warrior(string name, double health, double damage, double magicdamage, double armor, double manapool, double Strength, double Dexterity, double Constitution, double Intellisence, Item item) : base(name, health, damage, magicdamage, armor, manapool, Strength, Dexterity, Constitution, Intellisence, item)
         {
         }
     }

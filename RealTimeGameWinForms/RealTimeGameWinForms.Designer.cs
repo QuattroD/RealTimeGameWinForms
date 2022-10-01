@@ -49,8 +49,6 @@
             this.BFindAll = new System.Windows.Forms.Button();
             this.ItemtextBox = new System.Windows.Forms.TextBox();
             this.ItemLabel = new System.Windows.Forms.Label();
-            this.Counttextbox = new System.Windows.Forms.TextBox();
-            this.Countlabel = new System.Windows.Forms.Label();
             this.BChange = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.StrengthNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DexterityNumeric)).BeginInit();
@@ -256,25 +254,6 @@
             this.ItemLabel.TabIndex = 21;
             this.ItemLabel.Text = "Item";
             // 
-            // Counttextbox
-            // 
-            this.Counttextbox.Location = new System.Drawing.Point(83, 352);
-            this.Counttextbox.Name = "Counttextbox";
-            this.Counttextbox.Size = new System.Drawing.Size(50, 23);
-            this.Counttextbox.TabIndex = 24;
-            // 
-            // Countlabel
-            // 
-            this.Countlabel.AutoSize = true;
-            this.Countlabel.BackColor = System.Drawing.Color.Transparent;
-            this.Countlabel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Countlabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Countlabel.Location = new System.Drawing.Point(83, 329);
-            this.Countlabel.Name = "Countlabel";
-            this.Countlabel.Size = new System.Drawing.Size(48, 20);
-            this.Countlabel.TabIndex = 23;
-            this.Countlabel.Text = "Count";
-            // 
             // BChange
             // 
             this.BChange.Location = new System.Drawing.Point(71, 386);
@@ -293,8 +272,6 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(770, 561);
             this.Controls.Add(this.BChange);
-            this.Controls.Add(this.Counttextbox);
-            this.Controls.Add(this.Countlabel);
             this.Controls.Add(this.ItemtextBox);
             this.Controls.Add(this.ItemLabel);
             this.Controls.Add(this.BFindAll);

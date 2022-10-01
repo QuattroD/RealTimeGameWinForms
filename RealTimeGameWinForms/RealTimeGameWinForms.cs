@@ -120,7 +120,7 @@ namespace RealTimeGameWinForms
             Constitution = Convert.ToDouble(ConstitutionNumeric.Value);
             Intellisence = Convert.ToDouble(IntellisenceNumeric.Value);
 
-
+            Item items = new Item(ItemtextBox.Text);
             switch (ChoiceUnit.SelectedIndex)
             {
                 case 0:
@@ -129,9 +129,10 @@ namespace RealTimeGameWinForms
                     TotalMagicDamage = Intellisence;
                     TotalPhysicalDefence = Dexterity + (Constitution * 2);
                     TotalManaPool = Intellisence;
-                    Warrior warrior = new Warrior(NametextBox.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence);
+                    
+                    Warrior warrior = new Warrior(NametextBox.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence, items);
                     MessageBox.Show($"Имя - {warrior.name} \nЗдоровья - {warrior.health} \nУрон - {warrior.damage} \nМагический урон - {warrior.magicdamage} \nБроня - {warrior.armor} \nМана - {warrior.manapool}", "Юнит создан");
-                    warrior.AddItem(new Item(ItemtextBox.Text, int.Parse(Counttextbox.Text)));
+                    warrior.AddItem(new Item(ItemtextBox.Text));
                     mongoDB.AddToDB(warrior);
                     break;
 
@@ -141,9 +142,9 @@ namespace RealTimeGameWinForms
                     TotalMagicDamage = Intellisence * 2;
                     TotalPhysicalDefence = Dexterity * 1.5;
                     TotalManaPool = Intellisence * 1.5;
-                    Rogue rogue = new Rogue(NametextBox.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence);
+                    Rogue rogue = new Rogue(NametextBox.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence, items);
                     MessageBox.Show($"Имя - {rogue.name} \nЗдоровья - {rogue.health} \nУрон - {rogue.damage} \nМагический урон - {rogue.magicdamage} \nБроня - {rogue.armor} \nМана - {rogue.manapool}", "Юнит создан");
-                    rogue.AddItem(new Item(ItemtextBox.Text, int.Parse(Counttextbox.Text)));
+                    rogue.AddItem(new Item(ItemtextBox.Text));
                     mongoDB.AddToDB(rogue);
                     break;
 
@@ -153,9 +154,9 @@ namespace RealTimeGameWinForms
                     TotalMagicDamage = Intellisence * 5;
                     TotalPhysicalDefence = (Dexterity * 0.5) + Constitution;
                     TotalManaPool = Intellisence * 2;
-                    Wizard wizard = new Wizard(NametextBox.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence);
+                    Wizard wizard = new Wizard(NametextBox.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence, items);
                     MessageBox.Show($"Имя - {wizard.name} \nЗдоровья - {wizard.health} \nУрон - {wizard.damage} \nМагический урон - {wizard.magicdamage} \nБроня - {wizard.armor} \nМана - {wizard.manapool}", "Юнит создан");
-                    wizard.AddItem(new Item(ItemtextBox.Text, int.Parse(Counttextbox.Text)));
+                    wizard.AddItem(new Item(ItemtextBox.Text));
                     mongoDB.AddToDB(wizard);
                     break;
             }
@@ -239,7 +240,9 @@ namespace RealTimeGameWinForms
                     TotalManaPool = Intellisence * 2;
                     break;
             }
-            Unit unit = new Unit(NametextBox.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence);
+            Item items = new Item(ItemtextBox.Text);
+            Unit unit = new Unit(NametextBox.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence, items);
+            unit.Items.Add(items);
             var client = new MongoClient();
             var database = client.GetDatabase("Army");
             var collection = database.GetCollection<Unit>("Units");

@@ -28,9 +28,11 @@ namespace RealTimeGameWinForms
         public double Constitution { get; set; }
         public double Intellisence { get; set; }
         public bool IsAlive { get; set; }
+        [BsonIgnoreIfNull]
+        [BsonIgnoreIfDefault]
         public List<Item> Items { get; set; }
 
-        public Unit(string name, double health, double damage, double magicdamage, double armor, double manapool, double Strength, double Dexterity, double Constitution, double Intellisence)
+        public Unit(string name, double health, double damage, double magicdamage, double armor, double manapool, double Strength, double Dexterity, double Constitution, double Intellisence, Item item)
         {
             this.name = name;
             this.health = health;
