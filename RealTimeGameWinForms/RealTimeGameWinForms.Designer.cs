@@ -47,12 +47,10 @@
             this.BFind = new System.Windows.Forms.Button();
             this.FindtextBox = new System.Windows.Forms.TextBox();
             this.BFindAll = new System.Windows.Forms.Button();
-            this.Pointstextbox = new System.Windows.Forms.TextBox();
             this.ItemtextBox = new System.Windows.Forms.TextBox();
             this.ItemLabel = new System.Windows.Forms.Label();
             this.Counttextbox = new System.Windows.Forms.TextBox();
             this.Countlabel = new System.Windows.Forms.Label();
-            this.BAdd = new System.Windows.Forms.Button();
             this.BChange = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.StrengthNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DexterityNumeric)).BeginInit();
@@ -239,16 +237,6 @@
             this.BFindAll.UseVisualStyleBackColor = true;
             this.BFindAll.Click += new System.EventHandler(this.BFindAll_Click);
             // 
-            // Pointstextbox
-            // 
-            this.Pointstextbox.Cursor = System.Windows.Forms.Cursors.No;
-            this.Pointstextbox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Pointstextbox.Location = new System.Drawing.Point(208, 278);
-            this.Pointstextbox.Multiline = true;
-            this.Pointstextbox.Name = "Pointstextbox";
-            this.Pointstextbox.Size = new System.Drawing.Size(50, 50);
-            this.Pointstextbox.TabIndex = 19;
-            // 
             // ItemtextBox
             // 
             this.ItemtextBox.Location = new System.Drawing.Point(10, 352);
@@ -287,15 +275,6 @@
             this.Countlabel.TabIndex = 23;
             this.Countlabel.Text = "Count";
             // 
-            // BAdd
-            // 
-            this.BAdd.Location = new System.Drawing.Point(324, 375);
-            this.BAdd.Name = "BAdd";
-            this.BAdd.Size = new System.Drawing.Size(67, 23);
-            this.BAdd.TabIndex = 25;
-            this.BAdd.Text = "Add";
-            this.BAdd.UseVisualStyleBackColor = true;
-            // 
             // BChange
             // 
             this.BChange.Location = new System.Drawing.Point(71, 386);
@@ -314,12 +293,10 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(770, 561);
             this.Controls.Add(this.BChange);
-            this.Controls.Add(this.BAdd);
             this.Controls.Add(this.Counttextbox);
             this.Controls.Add(this.Countlabel);
             this.Controls.Add(this.ItemtextBox);
             this.Controls.Add(this.ItemLabel);
-            this.Controls.Add(this.Pointstextbox);
             this.Controls.Add(this.BFindAll);
             this.Controls.Add(this.FindtextBox);
             this.Controls.Add(this.BFind);
@@ -371,12 +348,10 @@
         private Button BFind;
         private TextBox FindtextBox;
         private Button BFindAll;
-        private TextBox Pointstextbox;
         private TextBox ItemtextBox;
         private Label ItemLabel;
         private TextBox Counttextbox;
         private Label Countlabel;
-        private Button BAdd;
         private Button BChange;
     }
 }

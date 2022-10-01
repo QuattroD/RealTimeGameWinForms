@@ -9,9 +9,11 @@ using System.Threading.Tasks;
 namespace RealTimeGameWinForms
 {
     [BsonIgnoreExtraElements]
+    [BsonKnownTypes(typeof(Wizard), typeof(Rogue), typeof(Warrior))]
     class Unit
     {
         [BsonId]
+        [BsonIgnoreIfDefault]
         ObjectId _id;
         public string name { get; set; }
         public double health { get; set; }

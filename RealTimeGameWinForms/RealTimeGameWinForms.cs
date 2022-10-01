@@ -23,14 +23,14 @@ namespace RealTimeGameWinForms
         public RealTimeGameWinForms()
         {
             InitializeComponent();
-            /*var client = new MongoClient();
+            var client = new MongoClient();
             var database = client.GetDatabase("Army");
             var collection = database.GetCollection<Unit>("Units");
             List<Unit> names = collection.AsQueryable().ToList<Unit>();
             foreach (var item in names)
             {
                 UnitsListBox.Items.Add(item.name);
-            }*/
+            }
         }
 
         MongoDB mongoDB = new MongoDB();   
@@ -58,7 +58,7 @@ namespace RealTimeGameWinForms
                     IntellisenceNumeric.Maximum = 50;
                     IntellisenceNumeric.Value = 10;
                     
-                    //Avatar.Load(url: @"https://static.cdprojektred.com/playgwent.com/news/big/playgwent.com_en_1535708549_5b890d852fb152.36885555.jpg");
+                   // Avatar.Load(url: @"https://static.cdprojektred.com/playgwent.com/news/big/playgwent.com_en_1535708549_5b890d852fb152.36885555.jpg");
                     Avatar.SizeMode = PictureBoxSizeMode.StretchImage;
                     break;
 
@@ -82,7 +82,7 @@ namespace RealTimeGameWinForms
                     IntellisenceNumeric.Maximum = 70;
                     IntellisenceNumeric.Value = 15;
                     
-                    //Avatar.Load(url: @"https://staticctf.akamaized.net/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/2EFsSmHHzSOjl3u7zcw1V3/5d4c2b629ca15a6044fda6bbbd6c2d07/acrogue_remastered_hero_mobile_Mobile-v2.jpg");
+                   // Avatar.Load(url: @"https://staticctf.akamaized.net/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/2EFsSmHHzSOjl3u7zcw1V3/5d4c2b629ca15a6044fda6bbbd6c2d07/acrogue_remastered_hero_mobile_Mobile-v2.jpg");
                     Avatar.SizeMode = PictureBoxSizeMode.StretchImage;
                     break;
 
@@ -106,7 +106,7 @@ namespace RealTimeGameWinForms
                     IntellisenceNumeric.Maximum = 250;
                     IntellisenceNumeric.Value = 35;
                     
-                    //Avatar.Load(url: @"http://www.cinema.com.my/images/news/2016/7g_warcraftnew00.jpg");
+                   // Avatar.Load(url: @"http://www.cinema.com.my/images/news/2016/7g_warcraftnew00.jpg");
                     Avatar.SizeMode = PictureBoxSizeMode.StretchImage;
                     break;
             }
@@ -209,11 +209,41 @@ namespace RealTimeGameWinForms
 
         private void BChange_Click(object sender, EventArgs e)
         {
+            Strength = Convert.ToDouble(StrengthNumeric.Value);
+            Dexterity = Convert.ToDouble(DexterityNumeric.Value);
+            Constitution = Convert.ToDouble(ConstitutionNumeric.Value);
+            Intellisence = Convert.ToDouble(IntellisenceNumeric.Value);
+            switch (UnitsListBox.SelectedIndex)
+            {
+                case 0:
+                    TotalHealth = (Strength * 2) + (Constitution * 10);
+                    TotalDamage = (Strength * 5) + Dexterity;
+                    TotalMagicDamage = Intellisence;
+                    TotalPhysicalDefence = Dexterity + (Constitution * 2);
+                    TotalManaPool = Intellisence;
+                    break;
+
+                case 1:
+                    TotalHealth = Strength + (Constitution * 6);
+                    TotalDamage = (Strength * 2) + (Dexterity * 4);
+                    TotalMagicDamage = Intellisence * 2;
+                    TotalPhysicalDefence = Dexterity * 1.5;
+                    TotalManaPool = Intellisence * 1.5;
+                    break;
+
+                case 2:
+                    TotalHealth = Strength + (Constitution * 3);
+                    TotalDamage = Strength * 2;
+                    TotalMagicDamage = Intellisence * 5;
+                    TotalPhysicalDefence = (Dexterity * 0.5) + Constitution;
+                    TotalManaPool = Intellisence * 2;
+                    break;
+            }
             Unit unit = new Unit(NametextBox.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence);
             var client = new MongoClient();
             var database = client.GetDatabase("Army");
             var collection = database.GetCollection<Unit>("Units");
-            collection.ReplaceOne(x => x.name == UnitsListBox.ToString(), unit);
+            collection.ReplaceOne(x => x.name == NametextBox.Text, unit);
         }
     }
 }
