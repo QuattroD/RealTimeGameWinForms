@@ -33,7 +33,7 @@ namespace RealTimeGameWinForms
             }
         }
 
-        MongoDB mongoDB = new MongoDB();   
+        MongoDB mongoDB = new MongoDB();
         private void ChoiceUnit_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (ChoiceUnit.SelectedIndex)
@@ -42,23 +42,23 @@ namespace RealTimeGameWinForms
                     StrengthNumeric.Minimum = 30;
                     StrengthNumeric.Maximum = 250;
                     StrengthNumeric.Value = 30;
-                    
+
 
                     DexterityNumeric.Minimum = 15;
                     DexterityNumeric.Maximum = 70;
                     DexterityNumeric.Value = 15;
-                    
+
 
                     ConstitutionNumeric.Minimum = 20;
                     ConstitutionNumeric.Maximum = 100;
                     ConstitutionNumeric.Value = 20;
-                    
+
 
                     IntellisenceNumeric.Minimum = 10;
                     IntellisenceNumeric.Maximum = 50;
                     IntellisenceNumeric.Value = 10;
-                    
-                   // Avatar.Load(url: @"https://static.cdprojektred.com/playgwent.com/news/big/playgwent.com_en_1535708549_5b890d852fb152.36885555.jpg");
+
+                    // Avatar.Load(url: @"https://static.cdprojektred.com/playgwent.com/news/big/playgwent.com_en_1535708549_5b890d852fb152.36885555.jpg");
                     Avatar.SizeMode = PictureBoxSizeMode.StretchImage;
                     break;
 
@@ -66,23 +66,23 @@ namespace RealTimeGameWinForms
                     StrengthNumeric.Minimum = 15;
                     StrengthNumeric.Maximum = 55;
                     StrengthNumeric.Value = 15;
-                    
+
 
                     DexterityNumeric.Minimum = 30;
                     DexterityNumeric.Maximum = 250;
                     DexterityNumeric.Value = 30;
-                    
+
 
                     ConstitutionNumeric.Minimum = 20;
                     ConstitutionNumeric.Maximum = 80;
                     ConstitutionNumeric.Value = 20;
-                    
+
 
                     IntellisenceNumeric.Minimum = 15;
                     IntellisenceNumeric.Maximum = 70;
                     IntellisenceNumeric.Value = 15;
-                    
-                   // Avatar.Load(url: @"https://staticctf.akamaized.net/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/2EFsSmHHzSOjl3u7zcw1V3/5d4c2b629ca15a6044fda6bbbd6c2d07/acrogue_remastered_hero_mobile_Mobile-v2.jpg");
+
+                    // Avatar.Load(url: @"https://staticctf.akamaized.net/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/2EFsSmHHzSOjl3u7zcw1V3/5d4c2b629ca15a6044fda6bbbd6c2d07/acrogue_remastered_hero_mobile_Mobile-v2.jpg");
                     Avatar.SizeMode = PictureBoxSizeMode.StretchImage;
                     break;
 
@@ -90,23 +90,23 @@ namespace RealTimeGameWinForms
                     StrengthNumeric.Minimum = 10;
                     StrengthNumeric.Maximum = 45;
                     StrengthNumeric.Value = 10;
-                    
+
 
                     DexterityNumeric.Minimum = 20;
                     DexterityNumeric.Maximum = 70;
                     DexterityNumeric.Value = 20;
-                    
+
 
                     ConstitutionNumeric.Minimum = 15;
                     ConstitutionNumeric.Maximum = 60;
                     ConstitutionNumeric.Value = 15;
-                    
+
 
                     IntellisenceNumeric.Minimum = 35;
                     IntellisenceNumeric.Maximum = 250;
                     IntellisenceNumeric.Value = 35;
-                    
-                   // Avatar.Load(url: @"http://www.cinema.com.my/images/news/2016/7g_warcraftnew00.jpg");
+
+                    // Avatar.Load(url: @"http://www.cinema.com.my/images/news/2016/7g_warcraftnew00.jpg");
                     Avatar.SizeMode = PictureBoxSizeMode.StretchImage;
                     break;
             }
@@ -119,8 +119,8 @@ namespace RealTimeGameWinForms
             Dexterity = Convert.ToDouble(DexterityNumeric.Value);
             Constitution = Convert.ToDouble(ConstitutionNumeric.Value);
             Intellisence = Convert.ToDouble(IntellisenceNumeric.Value);
-            
-            
+
+
             switch (ChoiceUnit.SelectedIndex)
             {
                 case 0:
@@ -154,7 +154,7 @@ namespace RealTimeGameWinForms
                     TotalPhysicalDefence = (Dexterity * 0.5) + Constitution;
                     TotalManaPool = Intellisence * 2;
                     Wizard wizard = new Wizard(NametextBox.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence);
-                    MessageBox.Show($"Имя - {wizard.name} \nЗдоровья - {wizard.health} \nУрон - {wizard.damage} \nМагический урон - {wizard.magicdamage} \nБроня - {wizard.armor} \nМана - {wizard.manapool}", "Юнит создан");                   
+                    MessageBox.Show($"Имя - {wizard.name} \nЗдоровья - {wizard.health} \nУрон - {wizard.damage} \nМагический урон - {wizard.magicdamage} \nБроня - {wizard.armor} \nМана - {wizard.manapool}", "Юнит создан");
                     wizard.AddItem(new Item(ItemtextBox.Text, int.Parse(Counttextbox.Text)));
                     mongoDB.AddToDB(wizard);
                     break;
@@ -186,19 +186,19 @@ namespace RealTimeGameWinForms
             var one = collection.Find(x => x.name == UnitsListBox.SelectedItem.ToString()).FirstOrDefault();
             int index = 0;
             NametextBox.Text = Convert.ToString(one.name);
-            switch(one.GetType().Name)
+            switch (one.GetType().Name)
             {
                 case "Warrior":
                     index = 0;
-                break;
+                    break;
 
                 case "Rogue":
                     index = 1;
-                break;
+                    break;
 
                 case "Wizard":
                     index = 2;
-                break;
+                    break;
             }
             ChoiceUnit.SelectedIndex = index;
             StrengthNumeric.Value = Convert.ToDecimal(one.Strength);

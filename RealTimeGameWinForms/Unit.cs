@@ -45,7 +45,7 @@ namespace RealTimeGameWinForms
             this.Dexterity = Dexterity;
             this.Constitution = Constitution;
             this.Intellisence = Intellisence;
-            Items = new List<Item>();
+            this.Items = new List<Item>();
         }
 
         public void AddItem(Item item)
