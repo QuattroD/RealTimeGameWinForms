@@ -54,8 +54,6 @@
             this.B1000exp = new System.Windows.Forms.Button();
             this.progressEXP = new System.Windows.Forms.ProgressBar();
             this.ShowUnitTalbe = new System.Windows.Forms.DataGridView();
-            this.LVLtextBox = new System.Windows.Forms.TextBox();
-            this.LVLlabel = new System.Windows.Forms.Label();
             this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaxHealthColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HealthColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +62,10 @@
             this.MagicdamageColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaxManaColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ManaColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LVLtextBox = new System.Windows.Forms.TextBox();
+            this.LVLlabel = new System.Windows.Forms.Label();
+            this.ExpInfo = new System.Windows.Forms.Label();
+            this.SelectSkills = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.StrengthNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DexterityNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConstitutionNumeric)).BeginInit();
@@ -185,7 +187,7 @@
             // 
             // Avatar
             // 
-            this.Avatar.Location = new System.Drawing.Point(158, 352);
+            this.Avatar.Location = new System.Drawing.Point(860, 283);
             this.Avatar.Name = "Avatar";
             this.Avatar.Size = new System.Drawing.Size(187, 184);
             this.Avatar.TabIndex = 11;
@@ -304,10 +306,12 @@
             // 
             // progressEXP
             // 
+            this.progressEXP.BackColor = System.Drawing.Color.Gray;
             this.progressEXP.Location = new System.Drawing.Point(148, 270);
             this.progressEXP.Name = "progressEXP";
-            this.progressEXP.Size = new System.Drawing.Size(100, 23);
+            this.progressEXP.Size = new System.Drawing.Size(100, 20);
             this.progressEXP.TabIndex = 29;
+            this.progressEXP.Tag = "";
             this.progressEXP.Visible = false;
             // 
             // ShowUnitTalbe
@@ -329,31 +333,6 @@
             this.ShowUnitTalbe.RowTemplate.Height = 25;
             this.ShowUnitTalbe.Size = new System.Drawing.Size(852, 150);
             this.ShowUnitTalbe.TabIndex = 31;
-            // 
-            // LVLtextBox
-            // 
-            this.LVLtextBox.Location = new System.Drawing.Point(188, 247);
-            this.LVLtextBox.Multiline = true;
-            this.LVLtextBox.Name = "LVLtextBox";
-            this.LVLtextBox.ReadOnly = true;
-            this.LVLtextBox.Size = new System.Drawing.Size(22, 20);
-            this.LVLtextBox.TabIndex = 32;
-            this.LVLtextBox.Text = "1";
-            this.LVLtextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.LVLtextBox.Visible = false;
-            // 
-            // LVLlabel
-            // 
-            this.LVLlabel.AutoSize = true;
-            this.LVLlabel.BackColor = System.Drawing.Color.Transparent;
-            this.LVLlabel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LVLlabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LVLlabel.Location = new System.Drawing.Point(148, 247);
-            this.LVLlabel.Name = "LVLlabel";
-            this.LVLlabel.Size = new System.Drawing.Size(34, 20);
-            this.LVLlabel.TabIndex = 33;
-            this.LVLlabel.Text = "LVL:";
-            this.LVLlabel.Visible = false;
             // 
             // NameColumn
             // 
@@ -403,6 +382,55 @@
             this.ManaColumn.Name = "ManaColumn";
             this.ManaColumn.ReadOnly = true;
             // 
+            // LVLtextBox
+            // 
+            this.LVLtextBox.Location = new System.Drawing.Point(188, 247);
+            this.LVLtextBox.Multiline = true;
+            this.LVLtextBox.Name = "LVLtextBox";
+            this.LVLtextBox.ReadOnly = true;
+            this.LVLtextBox.Size = new System.Drawing.Size(22, 20);
+            this.LVLtextBox.TabIndex = 32;
+            this.LVLtextBox.Text = "1";
+            this.LVLtextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.LVLtextBox.Visible = false;
+            this.LVLtextBox.TextChanged += new System.EventHandler(this.LVLtextBox_TextChanged);
+            // 
+            // LVLlabel
+            // 
+            this.LVLlabel.AutoSize = true;
+            this.LVLlabel.BackColor = System.Drawing.Color.Transparent;
+            this.LVLlabel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LVLlabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LVLlabel.Location = new System.Drawing.Point(148, 247);
+            this.LVLlabel.Name = "LVLlabel";
+            this.LVLlabel.Size = new System.Drawing.Size(34, 20);
+            this.LVLlabel.TabIndex = 33;
+            this.LVLlabel.Text = "LVL:";
+            this.LVLlabel.Visible = false;
+            // 
+            // ExpInfo
+            // 
+            this.ExpInfo.AutoSize = true;
+            this.ExpInfo.BackColor = System.Drawing.Color.Transparent;
+            this.ExpInfo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ExpInfo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ExpInfo.Location = new System.Drawing.Point(280, 270);
+            this.ExpInfo.Name = "ExpInfo";
+            this.ExpInfo.Size = new System.Drawing.Size(0, 20);
+            this.ExpInfo.TabIndex = 34;
+            // 
+            // SelectSkills
+            // 
+            this.SelectSkills.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SelectSkills.Location = new System.Drawing.Point(148, 337);
+            this.SelectSkills.Name = "SelectSkills";
+            this.SelectSkills.Size = new System.Drawing.Size(156, 72);
+            this.SelectSkills.TabIndex = 35;
+            this.SelectSkills.Text = "button1";
+            this.SelectSkills.UseVisualStyleBackColor = true;
+            this.SelectSkills.Visible = false;
+            this.SelectSkills.Click += new System.EventHandler(this.SelectSkills_Click);
+            // 
             // RealTimeGameWinForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -410,6 +438,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1147, 561);
+            this.Controls.Add(this.SelectSkills);
+            this.Controls.Add(this.ExpInfo);
             this.Controls.Add(this.LVLlabel);
             this.Controls.Add(this.LVLtextBox);
             this.Controls.Add(this.ShowUnitTalbe);
@@ -473,8 +503,6 @@
         private Button BFindAll;
         private TextBox ItemtextBox;
         private Label ItemLabel;
-        private TextBox Counttextbox;
-        private Label Countlabel;
         private Button BChange;
         private Button B500exp;
         private Button B1000exp;
@@ -490,5 +518,7 @@
         private DataGridViewTextBoxColumn MagicdamageColumn;
         private DataGridViewTextBoxColumn MaxManaColumn;
         private DataGridViewTextBoxColumn ManaColumn;
+        private Label ExpInfo;
+        private Button SelectSkills;
     }
 }
