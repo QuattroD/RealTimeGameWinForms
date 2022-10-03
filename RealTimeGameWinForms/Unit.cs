@@ -16,6 +16,8 @@ namespace RealTimeGameWinForms
         [BsonIgnoreIfDefault]
         ObjectId _id;
         public string name { get; set; }
+        public int LVL { get; set; }
+        /*public int exp { get; set; }*/
         public double health { get; set; }
         public double MaxHealth { get; set; }
         public double armor { get; set; }
@@ -32,7 +34,7 @@ namespace RealTimeGameWinForms
         [BsonIgnoreIfDefault]
         public List<Item> Items { get; set; }
 
-        public Unit(string name, double health, double damage, double magicdamage, double armor, double manapool, double Strength, double Dexterity, double Constitution, double Intellisence, Item item)
+        public Unit(string name, double health, double damage, double magicdamage, double armor, double manapool, double Strength, double Dexterity, double Constitution, double Intellisence, Item item, int lvl/*, int exp*/)
         {
             this.name = name;
             this.health = health;
@@ -48,6 +50,8 @@ namespace RealTimeGameWinForms
             this.Constitution = Constitution;
             this.Intellisence = Intellisence;
             this.Items = new List<Item>();
+            this.LVL = 1;
+            /*this.exp = exp;*/
         }
 
         public void AddItem(Item item)

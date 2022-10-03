@@ -50,11 +50,26 @@
             this.ItemtextBox = new System.Windows.Forms.TextBox();
             this.ItemLabel = new System.Windows.Forms.Label();
             this.BChange = new System.Windows.Forms.Button();
+            this.B500exp = new System.Windows.Forms.Button();
+            this.B1000exp = new System.Windows.Forms.Button();
+            this.progressEXP = new System.Windows.Forms.ProgressBar();
+            this.ShowUnitTalbe = new System.Windows.Forms.DataGridView();
+            this.LVLtextBox = new System.Windows.Forms.TextBox();
+            this.LVLlabel = new System.Windows.Forms.Label();
+            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaxHealthColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HealthColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ArmorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DamageColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MagicdamageColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaxManaColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ManaColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.StrengthNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DexterityNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConstitutionNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IntellisenceNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Avatar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ShowUnitTalbe)).BeginInit();
             this.SuspendLayout();
             // 
             // ChoiceUnit
@@ -170,7 +185,7 @@
             // 
             // Avatar
             // 
-            this.Avatar.Location = new System.Drawing.Point(139, 10);
+            this.Avatar.Location = new System.Drawing.Point(158, 352);
             this.Avatar.Name = "Avatar";
             this.Avatar.Size = new System.Drawing.Size(187, 184);
             this.Avatar.TabIndex = 11;
@@ -183,9 +198,10 @@
             this.UnitsListBox.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.UnitsListBox.FormattingEnabled = true;
             this.UnitsListBox.ItemHeight = 30;
-            this.UnitsListBox.Location = new System.Drawing.Point(332, 10);
+            this.UnitsListBox.Location = new System.Drawing.Point(148, 10);
+            this.UnitsListBox.MultiColumn = true;
             this.UnitsListBox.Name = "UnitsListBox";
-            this.UnitsListBox.Size = new System.Drawing.Size(215, 184);
+            this.UnitsListBox.Size = new System.Drawing.Size(136, 184);
             this.UnitsListBox.TabIndex = 12;
             this.UnitsListBox.SelectedIndexChanged += new System.EventHandler(this.UnitsListBox_SelectedIndexChanged);
             // 
@@ -264,13 +280,142 @@
             this.BChange.UseVisualStyleBackColor = true;
             this.BChange.Click += new System.EventHandler(this.BChange_Click);
             // 
+            // B500exp
+            // 
+            this.B500exp.Location = new System.Drawing.Point(148, 299);
+            this.B500exp.Name = "B500exp";
+            this.B500exp.Size = new System.Drawing.Size(75, 23);
+            this.B500exp.TabIndex = 27;
+            this.B500exp.Text = "+500EXP";
+            this.B500exp.UseVisualStyleBackColor = true;
+            this.B500exp.Visible = false;
+            this.B500exp.Click += new System.EventHandler(this.B500exp_Click);
+            // 
+            // B1000exp
+            // 
+            this.B1000exp.Location = new System.Drawing.Point(229, 299);
+            this.B1000exp.Name = "B1000exp";
+            this.B1000exp.Size = new System.Drawing.Size(75, 23);
+            this.B1000exp.TabIndex = 28;
+            this.B1000exp.Text = "+1000exp";
+            this.B1000exp.UseVisualStyleBackColor = true;
+            this.B1000exp.Visible = false;
+            this.B1000exp.Click += new System.EventHandler(this.B1000exp_Click);
+            // 
+            // progressEXP
+            // 
+            this.progressEXP.Location = new System.Drawing.Point(148, 270);
+            this.progressEXP.Name = "progressEXP";
+            this.progressEXP.Size = new System.Drawing.Size(100, 23);
+            this.progressEXP.TabIndex = 29;
+            this.progressEXP.Visible = false;
+            // 
+            // ShowUnitTalbe
+            // 
+            this.ShowUnitTalbe.AllowUserToDeleteRows = false;
+            this.ShowUnitTalbe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ShowUnitTalbe.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NameColumn,
+            this.MaxHealthColumn,
+            this.HealthColumn,
+            this.ArmorColumn,
+            this.DamageColumn,
+            this.MagicdamageColumn,
+            this.MaxManaColumn,
+            this.ManaColumn});
+            this.ShowUnitTalbe.Location = new System.Drawing.Point(290, 10);
+            this.ShowUnitTalbe.Name = "ShowUnitTalbe";
+            this.ShowUnitTalbe.ReadOnly = true;
+            this.ShowUnitTalbe.RowTemplate.Height = 25;
+            this.ShowUnitTalbe.Size = new System.Drawing.Size(852, 150);
+            this.ShowUnitTalbe.TabIndex = 31;
+            // 
+            // LVLtextBox
+            // 
+            this.LVLtextBox.Location = new System.Drawing.Point(188, 247);
+            this.LVLtextBox.Multiline = true;
+            this.LVLtextBox.Name = "LVLtextBox";
+            this.LVLtextBox.ReadOnly = true;
+            this.LVLtextBox.Size = new System.Drawing.Size(22, 20);
+            this.LVLtextBox.TabIndex = 32;
+            this.LVLtextBox.Text = "1";
+            this.LVLtextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.LVLtextBox.Visible = false;
+            // 
+            // LVLlabel
+            // 
+            this.LVLlabel.AutoSize = true;
+            this.LVLlabel.BackColor = System.Drawing.Color.Transparent;
+            this.LVLlabel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LVLlabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LVLlabel.Location = new System.Drawing.Point(148, 247);
+            this.LVLlabel.Name = "LVLlabel";
+            this.LVLlabel.Size = new System.Drawing.Size(34, 20);
+            this.LVLlabel.TabIndex = 33;
+            this.LVLlabel.Text = "LVL:";
+            this.LVLlabel.Visible = false;
+            // 
+            // NameColumn
+            // 
+            this.NameColumn.HeaderText = "Name";
+            this.NameColumn.Name = "NameColumn";
+            this.NameColumn.ReadOnly = true;
+            // 
+            // MaxHealthColumn
+            // 
+            this.MaxHealthColumn.HeaderText = "MaxHealth";
+            this.MaxHealthColumn.Name = "MaxHealthColumn";
+            this.MaxHealthColumn.ReadOnly = true;
+            // 
+            // HealthColumn
+            // 
+            this.HealthColumn.HeaderText = "Health";
+            this.HealthColumn.Name = "HealthColumn";
+            this.HealthColumn.ReadOnly = true;
+            // 
+            // ArmorColumn
+            // 
+            this.ArmorColumn.HeaderText = "Armor";
+            this.ArmorColumn.Name = "ArmorColumn";
+            this.ArmorColumn.ReadOnly = true;
+            // 
+            // DamageColumn
+            // 
+            this.DamageColumn.HeaderText = "Damage";
+            this.DamageColumn.Name = "DamageColumn";
+            this.DamageColumn.ReadOnly = true;
+            // 
+            // MagicdamageColumn
+            // 
+            this.MagicdamageColumn.HeaderText = "Magicdamage";
+            this.MagicdamageColumn.Name = "MagicdamageColumn";
+            this.MagicdamageColumn.ReadOnly = true;
+            // 
+            // MaxManaColumn
+            // 
+            this.MaxManaColumn.HeaderText = "MaxMana";
+            this.MaxManaColumn.Name = "MaxManaColumn";
+            this.MaxManaColumn.ReadOnly = true;
+            // 
+            // ManaColumn
+            // 
+            this.ManaColumn.HeaderText = "Mana";
+            this.ManaColumn.Name = "ManaColumn";
+            this.ManaColumn.ReadOnly = true;
+            // 
             // RealTimeGameWinForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(770, 561);
+            this.ClientSize = new System.Drawing.Size(1147, 561);
+            this.Controls.Add(this.LVLlabel);
+            this.Controls.Add(this.LVLtextBox);
+            this.Controls.Add(this.ShowUnitTalbe);
+            this.Controls.Add(this.progressEXP);
+            this.Controls.Add(this.B1000exp);
+            this.Controls.Add(this.B500exp);
             this.Controls.Add(this.BChange);
             this.Controls.Add(this.ItemtextBox);
             this.Controls.Add(this.ItemLabel);
@@ -300,6 +445,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ConstitutionNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IntellisenceNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Avatar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ShowUnitTalbe)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -330,5 +476,19 @@
         private TextBox Counttextbox;
         private Label Countlabel;
         private Button BChange;
+        private Button B500exp;
+        private Button B1000exp;
+        private ProgressBar progressEXP;
+        private DataGridView ShowUnitTalbe;
+        private TextBox LVLtextBox;
+        private Label LVLlabel;
+        private DataGridViewTextBoxColumn NameColumn;
+        private DataGridViewTextBoxColumn MaxHealthColumn;
+        private DataGridViewTextBoxColumn HealthColumn;
+        private DataGridViewTextBoxColumn ArmorColumn;
+        private DataGridViewTextBoxColumn DamageColumn;
+        private DataGridViewTextBoxColumn MagicdamageColumn;
+        private DataGridViewTextBoxColumn MaxManaColumn;
+        private DataGridViewTextBoxColumn ManaColumn;
     }
 }
