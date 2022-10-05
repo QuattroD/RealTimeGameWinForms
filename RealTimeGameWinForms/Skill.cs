@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace RealTimeGameWinForms
 {
-    class Skill
+    public class Skill
     {
-        public Skill(string Skillname)
+        public Skill(string skillname)
         {
-            this.Skillname = Skillname;
+            Skillname = skillname;
         }
         public string Skillname { get; set; }
     }

@@ -16,6 +16,7 @@ namespace RealTimeGameWinForms
         [BsonIgnoreIfDefault]
         ObjectId _id;
         public string name { get; set; }
+        public string Class { get; set; }
         public int LVL { get; set; }
         public int exp { get; set; }
         public double health { get; set; }
@@ -33,11 +34,14 @@ namespace RealTimeGameWinForms
         [BsonIgnoreIfNull]
         [BsonIgnoreIfDefault]
         public List<Item> Items { get; set; }
+        [BsonIgnoreIfNull]
+        [BsonIgnoreIfDefault]
         public List<Skill> Skills { get; set; }
 
-        public Unit(string name, double health, double damage, double magicdamage, double armor, double manapool, double Strength, double Dexterity, double Constitution, double Intellisence, Item item, Skill skill, int lvl, int exp)
+        public Unit(string name, string Class, double health, double damage, double magicdamage, double armor, double manapool, double Strength, double Dexterity, double Constitution, double Intellisence, int lvl, int exp)
         {
             this.name = name;
+            this.Class = Class;
             this.health = health;
             this.MaxHealth = this.health;
             this.damage = damage;
@@ -59,6 +63,11 @@ namespace RealTimeGameWinForms
         public void AddItem(Item item)
         {
             Items.Add(item);
+        }
+
+        public void AddSkill(Skill skill)
+        {
+            Skills.Add(skill);
         }
 
         public void Attack(Unit unit)

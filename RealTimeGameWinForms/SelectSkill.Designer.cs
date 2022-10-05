@@ -33,7 +33,7 @@
             this.Skills_2 = new System.Windows.Forms.Button();
             this.Skills_3 = new System.Windows.Forms.Button();
             this.SelectLabel = new System.Windows.Forms.Label();
-            this.SelectedSkill = new System.Windows.Forms.TextBox();
+            this.SkillnameTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // Skills_1
@@ -85,13 +85,12 @@
             this.SelectLabel.TabIndex = 1;
             this.SelectLabel.Text = "Select skill";
             // 
-            // SelectedSkill
+            // SkillnameTextBox
             // 
-            this.SelectedSkill.Location = new System.Drawing.Point(210, 34);
-            this.SelectedSkill.Name = "SelectedSkill";
-            this.SelectedSkill.Size = new System.Drawing.Size(100, 23);
-            this.SelectedSkill.TabIndex = 2;
-            this.SelectedSkill.Visible = false;
+            this.SkillnameTextBox.Location = new System.Drawing.Point(188, 34);
+            this.SkillnameTextBox.Name = "SkillnameTextBox";
+            this.SkillnameTextBox.Size = new System.Drawing.Size(100, 23);
+            this.SkillnameTextBox.TabIndex = 2;
             // 
             // SelectSkill
             // 
@@ -100,7 +99,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(516, 326);
-            this.Controls.Add(this.SelectedSkill);
+            this.Controls.Add(this.SkillnameTextBox);
             this.Controls.Add(this.SelectLabel);
             this.Controls.Add(this.Skills_3);
             this.Controls.Add(this.Skills_2);
@@ -118,6 +117,6 @@
         private Button Skills_2;
         private Button Skills_3;
         private Label SelectLabel;
-        private TextBox SelectedSkill;
+        private TextBox SkillnameTextBox;
     }
 }

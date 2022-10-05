@@ -53,15 +53,7 @@
             this.B500exp = new System.Windows.Forms.Button();
             this.B1000exp = new System.Windows.Forms.Button();
             this.progressEXP = new System.Windows.Forms.ProgressBar();
-            this.ShowUnitTalbe = new System.Windows.Forms.DataGridView();
-            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaxHealthColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HealthColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ArmorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DamageColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MagicdamageColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaxManaColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ManaColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ShowUnitTable = new System.Windows.Forms.DataGridView();
             this.LVLtextBox = new System.Windows.Forms.TextBox();
             this.LVLlabel = new System.Windows.Forms.Label();
             this.ExpInfo = new System.Windows.Forms.Label();
@@ -71,7 +63,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ConstitutionNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IntellisenceNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Avatar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ShowUnitTalbe)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ShowUnitTable)).BeginInit();
             this.SuspendLayout();
             // 
             // ChoiceUnit
@@ -203,7 +195,7 @@
             this.UnitsListBox.Location = new System.Drawing.Point(148, 10);
             this.UnitsListBox.MultiColumn = true;
             this.UnitsListBox.Name = "UnitsListBox";
-            this.UnitsListBox.Size = new System.Drawing.Size(136, 184);
+            this.UnitsListBox.Size = new System.Drawing.Size(156, 184);
             this.UnitsListBox.TabIndex = 12;
             this.UnitsListBox.SelectedIndexChanged += new System.EventHandler(this.UnitsListBox_SelectedIndexChanged);
             // 
@@ -314,73 +306,17 @@
             this.progressEXP.Tag = "";
             this.progressEXP.Visible = false;
             // 
-            // ShowUnitTalbe
+            // ShowUnitTable
             // 
-            this.ShowUnitTalbe.AllowUserToDeleteRows = false;
-            this.ShowUnitTalbe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ShowUnitTalbe.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NameColumn,
-            this.MaxHealthColumn,
-            this.HealthColumn,
-            this.ArmorColumn,
-            this.DamageColumn,
-            this.MagicdamageColumn,
-            this.MaxManaColumn,
-            this.ManaColumn});
-            this.ShowUnitTalbe.Location = new System.Drawing.Point(290, 10);
-            this.ShowUnitTalbe.Name = "ShowUnitTalbe";
-            this.ShowUnitTalbe.ReadOnly = true;
-            this.ShowUnitTalbe.RowTemplate.Height = 25;
-            this.ShowUnitTalbe.Size = new System.Drawing.Size(852, 150);
-            this.ShowUnitTalbe.TabIndex = 31;
-            // 
-            // NameColumn
-            // 
-            this.NameColumn.HeaderText = "Name";
-            this.NameColumn.Name = "NameColumn";
-            this.NameColumn.ReadOnly = true;
-            // 
-            // MaxHealthColumn
-            // 
-            this.MaxHealthColumn.HeaderText = "MaxHealth";
-            this.MaxHealthColumn.Name = "MaxHealthColumn";
-            this.MaxHealthColumn.ReadOnly = true;
-            // 
-            // HealthColumn
-            // 
-            this.HealthColumn.HeaderText = "Health";
-            this.HealthColumn.Name = "HealthColumn";
-            this.HealthColumn.ReadOnly = true;
-            // 
-            // ArmorColumn
-            // 
-            this.ArmorColumn.HeaderText = "Armor";
-            this.ArmorColumn.Name = "ArmorColumn";
-            this.ArmorColumn.ReadOnly = true;
-            // 
-            // DamageColumn
-            // 
-            this.DamageColumn.HeaderText = "Damage";
-            this.DamageColumn.Name = "DamageColumn";
-            this.DamageColumn.ReadOnly = true;
-            // 
-            // MagicdamageColumn
-            // 
-            this.MagicdamageColumn.HeaderText = "Magicdamage";
-            this.MagicdamageColumn.Name = "MagicdamageColumn";
-            this.MagicdamageColumn.ReadOnly = true;
-            // 
-            // MaxManaColumn
-            // 
-            this.MaxManaColumn.HeaderText = "MaxMana";
-            this.MaxManaColumn.Name = "MaxManaColumn";
-            this.MaxManaColumn.ReadOnly = true;
-            // 
-            // ManaColumn
-            // 
-            this.ManaColumn.HeaderText = "Mana";
-            this.ManaColumn.Name = "ManaColumn";
-            this.ManaColumn.ReadOnly = true;
+            this.ShowUnitTable.AllowUserToDeleteRows = false;
+            this.ShowUnitTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ShowUnitTable.Location = new System.Drawing.Point(351, 10);
+            this.ShowUnitTable.Name = "ShowUnitTable";
+            this.ShowUnitTable.ReadOnly = true;
+            this.ShowUnitTable.RowTemplate.Height = 25;
+            this.ShowUnitTable.Size = new System.Drawing.Size(486, 315);
+            this.ShowUnitTable.TabIndex = 31;
+            this.ShowUnitTable.Visible = false;
             // 
             // LVLtextBox
             // 
@@ -414,7 +350,7 @@
             this.ExpInfo.BackColor = System.Drawing.Color.Transparent;
             this.ExpInfo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ExpInfo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ExpInfo.Location = new System.Drawing.Point(280, 270);
+            this.ExpInfo.Location = new System.Drawing.Point(272, 270);
             this.ExpInfo.Name = "ExpInfo";
             this.ExpInfo.Size = new System.Drawing.Size(0, 20);
             this.ExpInfo.TabIndex = 34;
@@ -426,7 +362,7 @@
             this.SelectSkills.Name = "SelectSkills";
             this.SelectSkills.Size = new System.Drawing.Size(156, 72);
             this.SelectSkills.TabIndex = 35;
-            this.SelectSkills.Text = "button1";
+            this.SelectSkills.Text = "Select skill";
             this.SelectSkills.UseVisualStyleBackColor = true;
             this.SelectSkills.Visible = false;
             this.SelectSkills.Click += new System.EventHandler(this.SelectSkills_Click);
@@ -442,7 +378,7 @@
             this.Controls.Add(this.ExpInfo);
             this.Controls.Add(this.LVLlabel);
             this.Controls.Add(this.LVLtextBox);
-            this.Controls.Add(this.ShowUnitTalbe);
+            this.Controls.Add(this.ShowUnitTable);
             this.Controls.Add(this.progressEXP);
             this.Controls.Add(this.B1000exp);
             this.Controls.Add(this.B500exp);
@@ -475,7 +411,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ConstitutionNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IntellisenceNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Avatar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ShowUnitTalbe)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ShowUnitTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -507,17 +443,9 @@
         private Button B500exp;
         private Button B1000exp;
         private ProgressBar progressEXP;
-        private DataGridView ShowUnitTalbe;
+        private DataGridView ShowUnitTable;
         private TextBox LVLtextBox;
         private Label LVLlabel;
-        private DataGridViewTextBoxColumn NameColumn;
-        private DataGridViewTextBoxColumn MaxHealthColumn;
-        private DataGridViewTextBoxColumn HealthColumn;
-        private DataGridViewTextBoxColumn ArmorColumn;
-        private DataGridViewTextBoxColumn DamageColumn;
-        private DataGridViewTextBoxColumn MagicdamageColumn;
-        private DataGridViewTextBoxColumn MaxManaColumn;
-        private DataGridViewTextBoxColumn ManaColumn;
         private Label ExpInfo;
         private Button SelectSkills;
     }
