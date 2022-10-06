@@ -65,11 +65,6 @@ namespace RealTimeGameWinForms
             Items.Add(item);
         }
 
-        public void AddSkill(Skill skill)
-        {
-            Skills.Add(skill);
-        }
-
         public void Attack(Unit unit)
         {
             if (unit.health - damage > 0)

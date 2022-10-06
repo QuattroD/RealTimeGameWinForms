@@ -206,7 +206,6 @@ namespace RealTimeGameWinForms
             var one = collection.Find(x => x.name == UnitsListBox.SelectedItem.ToString()).FirstOrDefault();
             int index = 0;
             NametextBox.Text = Convert.ToString(one.name);
-            //ItemtextBox.Text = one.Items.
             switch (one.Class)
             {
                 case "Warrior":
@@ -382,18 +381,25 @@ namespace RealTimeGameWinForms
             var client = new MongoClient();
             var database = client.GetDatabase("Army");
             var collection = database.GetCollection<Unit>("Units");
-            
+            var one = collection.Find(x => x.name == UnitsListBox.SelectedItem.ToString()).FirstOrDefault();
             if (selectSkill.ShowDialog() == DialogResult.OK)
             {                
                 Skill skills = new Skill(selectSkill.skillName);
-                Item items = new Item(ItemtextBox.Text);
                 SelectSkills.Visible = false;
-                unit.Skills.Add(skills);  
-                unit.Items.Add(items);
-                collection.ReplaceOne(x => x.name == NametextBox.Text, unit);
-                //collection.InsertOne(x => x.name == NametextBox.Text, )
+                /*for (int i = 0; i < one.Skills.Count; i++)
+                {
+                    if (one.Skills[i] == skills)
+                    {
+                        var updatePull = Builders<Unit>.Update.Pull("Skills", skills);
+                        collection.UpdateOne(x => x.name == NametextBox.Text, updatePull);
+                    }
+                    else
+                    {*/
+                        var updatePush = Builders<Unit>.Update.Push("Skills", skills);
+                        collection.UpdateOne(x => x.name == NametextBox.Text, updatePush);
+                /*    }
+                }*/
             }
-            
         }
     }
 }
