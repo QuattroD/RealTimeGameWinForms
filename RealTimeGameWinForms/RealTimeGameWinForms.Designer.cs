@@ -58,6 +58,7 @@
             this.LVLlabel = new System.Windows.Forms.Label();
             this.ExpInfo = new System.Windows.Forms.Label();
             this.SelectSkills = new System.Windows.Forms.Button();
+            this.BAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.StrengthNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DexterityNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConstitutionNumeric)).BeginInit();
@@ -367,6 +368,16 @@
             this.SelectSkills.Visible = false;
             this.SelectSkills.Click += new System.EventHandler(this.SelectSkills_Click);
             // 
+            // BAdd
+            // 
+            this.BAdd.Location = new System.Drawing.Point(83, 352);
+            this.BAdd.Name = "BAdd";
+            this.BAdd.Size = new System.Drawing.Size(50, 23);
+            this.BAdd.TabIndex = 36;
+            this.BAdd.Text = "Add";
+            this.BAdd.UseVisualStyleBackColor = true;
+            this.BAdd.Click += new System.EventHandler(this.BAdd_Click);
+            // 
             // RealTimeGameWinForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -374,6 +385,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1147, 561);
+            this.Controls.Add(this.BAdd);
             this.Controls.Add(this.SelectSkills);
             this.Controls.Add(this.ExpInfo);
             this.Controls.Add(this.LVLlabel);
@@ -448,5 +460,6 @@
         private Label LVLlabel;
         private Label ExpInfo;
         private Button SelectSkills;
+        private Button BAdd;
     }
 }

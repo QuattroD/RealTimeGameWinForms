@@ -401,5 +401,17 @@ namespace RealTimeGameWinForms
                 }*/
             }
         }
+
+        private void BAdd_Click(object sender, EventArgs e)
+        {
+            var client = new MongoClient();
+            var database = client.GetDatabase("Army");
+            var collection = database.GetCollection<Unit>("Units");
+            Item items = new Item(ItemtextBox.Text);
+            var updatePush = Builders<Unit>.Update.Push("Items", items);
+            collection.UpdateOne(x => x.name == NametextBox.Text, updatePush);
+            ItemtextBox.Text = "";
+
+        }
     }
 }
