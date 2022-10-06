@@ -179,7 +179,7 @@
             // 
             // Avatar
             // 
-            this.Avatar.Location = new System.Drawing.Point(860, 283);
+            this.Avatar.Location = new System.Drawing.Point(948, 365);
             this.Avatar.Name = "Avatar";
             this.Avatar.Size = new System.Drawing.Size(187, 184);
             this.Avatar.TabIndex = 11;
@@ -310,7 +310,7 @@
             // 
             this.ShowUnitTable.AllowUserToDeleteRows = false;
             this.ShowUnitTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ShowUnitTable.Location = new System.Drawing.Point(351, 10);
+            this.ShowUnitTable.Location = new System.Drawing.Point(649, 7);
             this.ShowUnitTable.Name = "ShowUnitTable";
             this.ShowUnitTable.ReadOnly = true;
             this.ShowUnitTable.RowTemplate.Height = 25;
