@@ -59,6 +59,8 @@
             this.ExpInfo = new System.Windows.Forms.Label();
             this.SelectSkills = new System.Windows.Forms.Button();
             this.BAdd = new System.Windows.Forms.Button();
+            this.CounttextBox = new System.Windows.Forms.TextBox();
+            this.Countlabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.StrengthNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DexterityNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConstitutionNumeric)).BeginInit();
@@ -170,7 +172,7 @@
             // 
             // Create
             // 
-            this.Create.Location = new System.Drawing.Point(10, 386);
+            this.Create.Location = new System.Drawing.Point(10, 413);
             this.Create.Name = "Create";
             this.Create.Size = new System.Drawing.Size(52, 23);
             this.Create.TabIndex = 10;
@@ -221,7 +223,7 @@
             // 
             // BFind
             // 
-            this.BFind.Location = new System.Drawing.Point(10, 444);
+            this.BFind.Location = new System.Drawing.Point(10, 471);
             this.BFind.Name = "BFind";
             this.BFind.Size = new System.Drawing.Size(52, 23);
             this.BFind.TabIndex = 16;
@@ -231,16 +233,16 @@
             // 
             // FindtextBox
             // 
-            this.FindtextBox.Location = new System.Drawing.Point(10, 415);
+            this.FindtextBox.Location = new System.Drawing.Point(10, 442);
             this.FindtextBox.Name = "FindtextBox";
-            this.FindtextBox.Size = new System.Drawing.Size(120, 23);
+            this.FindtextBox.Size = new System.Drawing.Size(123, 23);
             this.FindtextBox.TabIndex = 17;
             // 
             // BFindAll
             // 
-            this.BFindAll.Location = new System.Drawing.Point(68, 444);
+            this.BFindAll.Location = new System.Drawing.Point(68, 471);
             this.BFindAll.Name = "BFindAll";
-            this.BFindAll.Size = new System.Drawing.Size(62, 23);
+            this.BFindAll.Size = new System.Drawing.Size(65, 23);
             this.BFindAll.TabIndex = 18;
             this.BFindAll.Text = "FindAll";
             this.BFindAll.UseVisualStyleBackColor = true;
@@ -267,7 +269,7 @@
             // 
             // BChange
             // 
-            this.BChange.Location = new System.Drawing.Point(71, 386);
+            this.BChange.Location = new System.Drawing.Point(71, 413);
             this.BChange.Name = "BChange";
             this.BChange.Size = new System.Drawing.Size(62, 23);
             this.BChange.TabIndex = 26;
@@ -370,13 +372,32 @@
             // 
             // BAdd
             // 
-            this.BAdd.Location = new System.Drawing.Point(83, 352);
+            this.BAdd.Location = new System.Drawing.Point(10, 381);
             this.BAdd.Name = "BAdd";
-            this.BAdd.Size = new System.Drawing.Size(50, 23);
+            this.BAdd.Size = new System.Drawing.Size(123, 23);
             this.BAdd.TabIndex = 36;
             this.BAdd.Text = "Add";
             this.BAdd.UseVisualStyleBackColor = true;
             this.BAdd.Click += new System.EventHandler(this.BAdd_Click);
+            // 
+            // CounttextBox
+            // 
+            this.CounttextBox.Location = new System.Drawing.Point(83, 352);
+            this.CounttextBox.Name = "CounttextBox";
+            this.CounttextBox.Size = new System.Drawing.Size(50, 23);
+            this.CounttextBox.TabIndex = 38;
+            // 
+            // Countlabel
+            // 
+            this.Countlabel.AutoSize = true;
+            this.Countlabel.BackColor = System.Drawing.Color.Transparent;
+            this.Countlabel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Countlabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Countlabel.Location = new System.Drawing.Point(83, 329);
+            this.Countlabel.Name = "Countlabel";
+            this.Countlabel.Size = new System.Drawing.Size(48, 20);
+            this.Countlabel.TabIndex = 37;
+            this.Countlabel.Text = "Count";
             // 
             // RealTimeGameWinForms
             // 
@@ -385,6 +406,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1147, 561);
+            this.Controls.Add(this.CounttextBox);
+            this.Controls.Add(this.Countlabel);
             this.Controls.Add(this.BAdd);
             this.Controls.Add(this.SelectSkills);
             this.Controls.Add(this.ExpInfo);
@@ -461,5 +484,7 @@
         private Label ExpInfo;
         private Button SelectSkills;
         private Button BAdd;
+        private TextBox CounttextBox;
+        private Label Countlabel;
     }
 }

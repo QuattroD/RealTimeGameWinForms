@@ -139,7 +139,7 @@ namespace RealTimeGameWinForms
             this.Constitution = Convert.ToDouble(ConstitutionNumeric.Value);
             this.Intellisence = Convert.ToDouble(IntellisenceNumeric.Value);
             SelectSkill selectSkill = new SelectSkill();
-            Item items = new Item(ItemtextBox.Text);
+            Item items = new Item(ItemtextBox.Text, int.Parse(CounttextBox.Text));
             switch (ChoiceUnit.SelectedIndex)
             {
                 case 0:
@@ -151,7 +151,7 @@ namespace RealTimeGameWinForms
                     
                     Warrior warrior = new Warrior(NametextBox.Text, ChoiceUnit.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence, int.Parse(LVLtextBox.Text), Convert.ToInt32(progressEXP.Value));
                     MessageBox.Show($"Имя - {warrior.name} \nЗдоровья - {warrior.health} \nУрон - {warrior.damage} \nМагический урон - {warrior.magicdamage} \nБроня - {warrior.armor} \nМана - {warrior.manapool}", "Юнит создан");
-                    warrior.AddItem(new Item(ItemtextBox.Text));                  
+                    warrior.AddItem(new Item(ItemtextBox.Text, int.Parse(CounttextBox.Text)));                  
                     mongoDB.AddToDB(warrior);
                     break;
 
@@ -163,7 +163,7 @@ namespace RealTimeGameWinForms
                     TotalManaPool = Intellisence * 1.5;
                     Rogue rogue = new Rogue(NametextBox.Text, ChoiceUnit.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence, int.Parse(LVLtextBox.Text), Convert.ToInt32(progressEXP.Value));
                     MessageBox.Show($"Имя - {rogue.name} \nЗдоровья - {rogue.health} \nУрон - {rogue.damage} \nМагический урон - {rogue.magicdamage} \nБроня - {rogue.armor} \nМана - {rogue.manapool}", "Юнит создан");
-                    rogue.AddItem(new Item(ItemtextBox.Text));
+                    rogue.AddItem(new Item(ItemtextBox.Text, int.Parse(CounttextBox.Text)));
                     mongoDB.AddToDB(rogue);
                     break;
 
@@ -175,7 +175,7 @@ namespace RealTimeGameWinForms
                     TotalManaPool = Intellisence * 2;
                     Wizard wizard = new Wizard(NametextBox.Text, ChoiceUnit.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence, int.Parse(LVLtextBox.Text), Convert.ToInt32(progressEXP.Value));
                     MessageBox.Show($"Имя - {wizard.name} \nЗдоровья - {wizard.health} \nУрон - {wizard.damage} \nМагический урон - {wizard.magicdamage} \nБроня - {wizard.armor} \nМана - {wizard.manapool}", "Юнит создан");
-                    wizard.AddItem(new Item(ItemtextBox.Text));
+                    wizard.AddItem(new Item(ItemtextBox.Text, int.Parse(CounttextBox.Text)));
                     mongoDB.AddToDB(wizard);
                     break;
             }
@@ -270,7 +270,7 @@ namespace RealTimeGameWinForms
                     TotalManaPool = Intellisence * 2;
                     break;
             }
-            Item items = new Item(ItemtextBox.Text);
+            Item items = new Item(ItemtextBox.Text, int.Parse(CounttextBox.Text));
             Unit unit = new Unit(NametextBox.Text, ChoiceUnit.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence, int.Parse(LVLtextBox.Text), Convert.ToInt32(progressEXP.Value));
             unit.Items.Add(items);
             var client = new MongoClient();
@@ -282,7 +282,7 @@ namespace RealTimeGameWinForms
         private void B500exp_Click(object sender, EventArgs e)
         {
             SelectSkill selectSkill = new SelectSkill();
-            Item items = new Item(ItemtextBox.Text);
+            Item items = new Item(ItemtextBox.Text, int.Parse(CounttextBox.Text));
             Skill skills = new Skill(selectSkill.skillName);
             Unit unit = new Unit(NametextBox.Text, ChoiceUnit.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence, int.Parse(LVLtextBox.Text), Convert.ToInt32(progressEXP.Value));
             var client = new MongoClient();
@@ -407,7 +407,7 @@ namespace RealTimeGameWinForms
             var client = new MongoClient();
             var database = client.GetDatabase("Army");
             var collection = database.GetCollection<Unit>("Units");
-            Item items = new Item(ItemtextBox.Text);
+            Item items = new Item(ItemtextBox.Text, int.Parse(CounttextBox.Text));
             var updatePush = Builders<Unit>.Update.Push("Items", items);
             collection.UpdateOne(x => x.name == NametextBox.Text, updatePush);
             ItemtextBox.Text = "";
