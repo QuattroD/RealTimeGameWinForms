@@ -18,7 +18,8 @@ namespace RealTimeGameWinForms
         public string name { get; set; }
         public string Class { get; set; }
         public int LVL { get; set; }
-        public int exp { get; set; }
+        public int Currentexp { get; set; }
+        public int TotalExp { get; set; }
         public double health { get; set; }
         public double MaxHealth { get; set; }
         public double armor { get; set; }
@@ -38,7 +39,7 @@ namespace RealTimeGameWinForms
         [BsonIgnoreIfDefault]
         public List<Skill> Skills { get; set; }
 
-        public Unit(string name, string Class, double health, double damage, double magicdamage, double armor, double manapool, double Strength, double Dexterity, double Constitution, double Intellisence, int lvl, int exp)
+        public Unit(string name, string Class, double health, double damage, double magicdamage, double armor, double manapool, double Strength, double Dexterity, double Constitution, double Intellisence, int LVL)
         {
             this.name = name;
             this.Class = Class;
@@ -57,7 +58,8 @@ namespace RealTimeGameWinForms
             this.Items = new List<Item>();
             this.Skills = new List<Skill>();
             this.LVL = 1;
-            this.exp = exp;
+            this.Currentexp = Currentexp;
+            this.TotalExp = TotalExp;
         }
 
         public void AddItem(Item item)
