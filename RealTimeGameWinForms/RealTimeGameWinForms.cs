@@ -403,5 +403,11 @@ namespace RealTimeGameWinForms
             ItemtextBox.Text = "";
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Equipment test = new Equipment();
+            test.Show();
+        }
     }
 }

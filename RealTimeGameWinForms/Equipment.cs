@@ -16,15 +16,5 @@ namespace RealTimeGameWinForms
         {
             InitializeComponent();
         }
-
-        private void EquipmentListBox_SelectedValueChanged(object sender, EventArgs e)
-        {
-            switch(EquipmentListBox.SelectedIndex)
-            {
-                case 0:
-
-                break;
-            }
-        }
     }
 }

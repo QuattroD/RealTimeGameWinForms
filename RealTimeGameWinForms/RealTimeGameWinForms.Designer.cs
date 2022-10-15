@@ -61,6 +61,7 @@
             this.BAdd = new System.Windows.Forms.Button();
             this.CounttextBox = new System.Windows.Forms.TextBox();
             this.Countlabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.StrengthNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DexterityNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConstitutionNumeric)).BeginInit();
@@ -399,6 +400,16 @@
             this.Countlabel.TabIndex = 37;
             this.Countlabel.Text = "Count";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(456, 306);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 39;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // RealTimeGameWinForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -406,6 +417,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1147, 561);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.CounttextBox);
             this.Controls.Add(this.Countlabel);
             this.Controls.Add(this.BAdd);
@@ -486,5 +498,6 @@
         private Button BAdd;
         private TextBox CounttextBox;
         private Label Countlabel;
+        private Button button1;
     }
 }
