@@ -30,24 +30,146 @@
         {
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "CONFESSOR HOOD",
-            "test"}, -1);
+            "Helmet",
+            "High",
+            "",
+            "",
+            "",
+            ""}, -1);
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
             "CONFESSOR ARMOR",
-            "test1"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("DAGGERS");
-            this.listView1 = new System.Windows.Forms.ListView();
+            "Armor",
+            "High",
+            "",
+            "",
+            "",
+            ""}, -1);
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
+            "DIGGER\'S STAFF",
+            "Weapon",
+            "High",
+            "",
+            "",
+            "",
+            ""}, -1);
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
+            "HAIMA GLINTSTONE CROWN",
+            "Helmet",
+            "Medium",
+            "",
+            "",
+            "",
+            ""}, -1);
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
+            "BATTLEMAGE ROBE",
+            "Armor",
+            "Medium"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
+            "LUSAT\'S GLINTSTONE STAFF",
+            "Weapon",
+            "Medium"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(new string[] {
+            "CONSORT\'S MASK",
+            "Helmet",
+            "Low"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem(new string[] {
+            "CONSORT\'S ROBE",
+            "Armor",
+            "Low"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Meteorite STAFF",
+            "Weapon",
+            "Low"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem(new string[] {
+            "BLACK WOLF MASK",
+            "Helmet",
+            "High",
+            "",
+            "",
+            "",
+            ""}, -1);
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem(new string[] {
+            "BLAIDD\'S ARMOR",
+            "Armor",
+            "High"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem(new string[] {
+            "BLAIDD\'S SWORD",
+            "Weapon",
+            "High"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem(new string[] {
+            "CLEANROT HELM",
+            "Helmet",
+            "Medium"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem(new string[] {
+            "CLEANROT ARMOR",
+            "Armor",
+            "Medium"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem(new string[] {
+            "LONGSWORD",
+            "Weapon",
+            "Medium"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem(new string[] {
+            "CUCKOO KNIGHT HELM",
+            "Helmet",
+            "Low"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem(new string[] {
+            "CUCKOO KNIGHT ARMOR",
+            "Armor",
+            "Low"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem(new string[] {
+            "ROTTEN CRYSTAL SWORD",
+            "Weapon",
+            "Low"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem(new string[] {
+            "DEPRAVED PERFUMER HEADSCARF",
+            "Helmet",
+            "High"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem20 = new System.Windows.Forms.ListViewItem(new string[] {
+            "DEPRAVED PERFUMER ROBE",
+            "Armor",
+            "High"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem21 = new System.Windows.Forms.ListViewItem(new string[] {
+            "SHORT SWORD",
+            "Weapon",
+            "High"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem22 = new System.Windows.Forms.ListViewItem(new string[] {
+            "EXILE HOOD",
+            "Helmet",
+            "Medium"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem23 = new System.Windows.Forms.ListViewItem(new string[] {
+            "EXILE ARMOR",
+            "Armor",
+            "Medium"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem24 = new System.Windows.Forms.ListViewItem(new string[] {
+            "PARRYING DAGGER",
+            "Weapon",
+            "Medium"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem25 = new System.Windows.Forms.ListViewItem(new string[] {
+            "GODSKIN APOSTLE HOOD",
+            "Helmet",
+            "Low"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem26 = new System.Windows.Forms.ListViewItem(new string[] {
+            "GODSKIN APOSTLE ROBE",
+            "Armor",
+            "Low"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem27 = new System.Windows.Forms.ListViewItem(new string[] {
+            "GREAT KNIFE",
+            "Weapon",
+            "Low"}, -1);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Equipment));
+            this.EquipmentlistView = new System.Windows.Forms.ListView();
             this.columnName = new System.Windows.Forms.ColumnHeader();
             this.columnType = new System.Windows.Forms.ColumnHeader();
+            this.columnLVL = new System.Windows.Forms.ColumnHeader();
             this.columnStrength = new System.Windows.Forms.ColumnHeader();
             this.columnDexterity = new System.Windows.Forms.ColumnHeader();
             this.columnConstitution = new System.Windows.Forms.ColumnHeader();
             this.columnIntellegence = new System.Windows.Forms.ColumnHeader();
-            this.columnLVL = new System.Windows.Forms.ColumnHeader();
             this.SuspendLayout();
             // 
-            // listView1
+            // EquipmentlistView
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.EquipmentlistView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnName,
             this.columnType,
             this.columnLVL,
@@ -55,57 +177,85 @@
             this.columnDexterity,
             this.columnConstitution,
             this.columnIntellegence});
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1.StateImageIndex = 0;
+            this.EquipmentlistView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
             listViewItem2,
-            listViewItem3});
-            this.listView1.Location = new System.Drawing.Point(313, 117);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(428, 170);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            listViewItem3,
+            listViewItem4,
+            listViewItem5,
+            listViewItem6,
+            listViewItem7,
+            listViewItem8,
+            listViewItem9,
+            listViewItem10,
+            listViewItem11,
+            listViewItem12,
+            listViewItem13,
+            listViewItem14,
+            listViewItem15,
+            listViewItem16,
+            listViewItem17,
+            listViewItem18,
+            listViewItem19,
+            listViewItem20,
+            listViewItem21,
+            listViewItem22,
+            listViewItem23,
+            listViewItem24,
+            listViewItem25,
+            listViewItem26,
+            listViewItem27});
+            this.EquipmentlistView.Location = new System.Drawing.Point(12, 12);
+            this.EquipmentlistView.MultiSelect = false;
+            this.EquipmentlistView.Name = "EquipmentlistView";
+            this.EquipmentlistView.Scrollable = false;
+            this.EquipmentlistView.Size = new System.Drawing.Size(603, 543);
+            this.EquipmentlistView.TabIndex = 0;
+            this.EquipmentlistView.UseCompatibleStateImageBehavior = false;
+            this.EquipmentlistView.View = System.Windows.Forms.View.Details;
+            this.EquipmentlistView.DoubleClick += new System.EventHandler(this.EquipmentlistView_DoubleClick);
             // 
             // columnName
             // 
             this.columnName.Text = "Name";
-            this.columnName.Width = 135;
+            this.columnName.Width = 200;
             // 
             // columnType
             // 
             this.columnType.Text = "Type";
             // 
+            // columnLVL
+            // 
+            this.columnLVL.Text = "LVL";
+            // 
             // columnStrength
             // 
-            this.columnStrength.DisplayIndex = 2;
             this.columnStrength.Text = "Strength";
             // 
             // columnDexterity
             // 
-            this.columnDexterity.DisplayIndex = 3;
             this.columnDexterity.Text = "Dexterity";
             // 
             // columnConstitution
             // 
-            this.columnConstitution.DisplayIndex = 4;
             this.columnConstitution.Text = "Constitution";
+            this.columnConstitution.Width = 80;
             // 
             // columnIntellegence
             // 
-            this.columnIntellegence.DisplayIndex = 5;
             this.columnIntellegence.Text = "Intellegence";
-            // 
-            // columnLVL
-            // 
-            this.columnLVL.DisplayIndex = 6;
-            this.columnLVL.Text = "ColumnLVL";
+            this.columnIntellegence.Width = 80;
             // 
             // Equipment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.listView1);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1088, 568);
+            this.Controls.Add(this.EquipmentlistView);
             this.Name = "Equipment";
             this.Text = "Helmet";
             this.ResumeLayout(false);
@@ -114,7 +264,7 @@
 
         #endregion
 
-        private ListView listView1;
+        private ListView EquipmentlistView;
         private ColumnHeader columnName;
         private ColumnHeader columnType;
         private ColumnHeader columnStrength;

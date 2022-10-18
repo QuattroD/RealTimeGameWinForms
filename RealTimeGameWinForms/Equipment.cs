@@ -16,5 +16,10 @@ namespace RealTimeGameWinForms
         {
             InitializeComponent();
         }
+
+        private void EquipmentlistView_DoubleClick(object sender, EventArgs e)
+        {
+
+        }
     }
 }
