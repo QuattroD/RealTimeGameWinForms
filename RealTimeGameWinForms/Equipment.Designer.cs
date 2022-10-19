@@ -77,7 +77,7 @@
             "Armor",
             "Low"}, -1);
             System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Meteorite STAFF",
+            "METEORITE STAFF",
             "Weapon",
             "Low"}, -1);
             System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem(new string[] {
@@ -165,6 +165,18 @@
             this.columnDexterity = new System.Windows.Forms.ColumnHeader();
             this.columnConstitution = new System.Windows.Forms.ColumnHeader();
             this.columnIntellegence = new System.Windows.Forms.ColumnHeader();
+            this.SelectedlistView = new System.Windows.Forms.ListView();
+            this.columnSelectedName = new System.Windows.Forms.ColumnHeader();
+            this.columnSelectedType = new System.Windows.Forms.ColumnHeader();
+            this.columnSelectedLVL = new System.Windows.Forms.ColumnHeader();
+            this.columnSelectedStrength = new System.Windows.Forms.ColumnHeader();
+            this.columnSelectedDexterity = new System.Windows.Forms.ColumnHeader();
+            this.columnSelectedConstitution = new System.Windows.Forms.ColumnHeader();
+            this.columnSelectedIntellgence = new System.Windows.Forms.ColumnHeader();
+            this.SaveB = new System.Windows.Forms.Button();
+            this.comboBoxHelmet = new System.Windows.Forms.ComboBox();
+            this.comboBoxArmor = new System.Windows.Forms.ComboBox();
+            this.comboBoxWeapon = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // EquipmentlistView
@@ -247,6 +259,90 @@
             this.columnIntellegence.Text = "Intellegence";
             this.columnIntellegence.Width = 80;
             // 
+            // SelectedlistView
+            // 
+            this.SelectedlistView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnSelectedName,
+            this.columnSelectedType,
+            this.columnSelectedLVL,
+            this.columnSelectedStrength,
+            this.columnSelectedDexterity,
+            this.columnSelectedConstitution,
+            this.columnSelectedIntellgence});
+            this.SelectedlistView.Location = new System.Drawing.Point(621, 12);
+            this.SelectedlistView.Name = "SelectedlistView";
+            this.SelectedlistView.Size = new System.Drawing.Size(603, 244);
+            this.SelectedlistView.TabIndex = 1;
+            this.SelectedlistView.UseCompatibleStateImageBehavior = false;
+            this.SelectedlistView.View = System.Windows.Forms.View.Details;
+            this.SelectedlistView.DoubleClick += new System.EventHandler(this.SelectedlistView_DoubleClick);
+            // 
+            // columnSelectedName
+            // 
+            this.columnSelectedName.Text = "Name";
+            this.columnSelectedName.Width = 200;
+            // 
+            // columnSelectedType
+            // 
+            this.columnSelectedType.Text = "Type";
+            // 
+            // columnSelectedLVL
+            // 
+            this.columnSelectedLVL.Text = "LVL";
+            // 
+            // columnSelectedStrength
+            // 
+            this.columnSelectedStrength.Text = "Strength";
+            // 
+            // columnSelectedDexterity
+            // 
+            this.columnSelectedDexterity.Text = "Dexterity";
+            // 
+            // columnSelectedConstitution
+            // 
+            this.columnSelectedConstitution.Text = "Constitution";
+            this.columnSelectedConstitution.Width = 80;
+            // 
+            // columnSelectedIntellgence
+            // 
+            this.columnSelectedIntellgence.Text = "Intellegence";
+            this.columnSelectedIntellgence.Width = 80;
+            // 
+            // SaveB
+            // 
+            this.SaveB.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SaveB.Location = new System.Drawing.Point(875, 499);
+            this.SaveB.Name = "SaveB";
+            this.SaveB.Size = new System.Drawing.Size(90, 40);
+            this.SaveB.TabIndex = 2;
+            this.SaveB.Text = "Save";
+            this.SaveB.UseVisualStyleBackColor = true;
+            this.SaveB.Click += new System.EventHandler(this.SaveB_Click);
+            // 
+            // comboBoxHelmet
+            // 
+            this.comboBoxHelmet.FormattingEnabled = true;
+            this.comboBoxHelmet.Location = new System.Drawing.Point(654, 275);
+            this.comboBoxHelmet.Name = "comboBoxHelmet";
+            this.comboBoxHelmet.Size = new System.Drawing.Size(164, 23);
+            this.comboBoxHelmet.TabIndex = 3;
+            // 
+            // comboBoxArmor
+            // 
+            this.comboBoxArmor.FormattingEnabled = true;
+            this.comboBoxArmor.Location = new System.Drawing.Point(837, 275);
+            this.comboBoxArmor.Name = "comboBoxArmor";
+            this.comboBoxArmor.Size = new System.Drawing.Size(164, 23);
+            this.comboBoxArmor.TabIndex = 4;
+            // 
+            // comboBoxWeapon
+            // 
+            this.comboBoxWeapon.FormattingEnabled = true;
+            this.comboBoxWeapon.Location = new System.Drawing.Point(1020, 275);
+            this.comboBoxWeapon.Name = "comboBoxWeapon";
+            this.comboBoxWeapon.Size = new System.Drawing.Size(164, 23);
+            this.comboBoxWeapon.TabIndex = 5;
+            // 
             // Equipment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -254,7 +350,12 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1088, 568);
+            this.ClientSize = new System.Drawing.Size(1234, 568);
+            this.Controls.Add(this.comboBoxWeapon);
+            this.Controls.Add(this.comboBoxArmor);
+            this.Controls.Add(this.comboBoxHelmet);
+            this.Controls.Add(this.SaveB);
+            this.Controls.Add(this.SelectedlistView);
             this.Controls.Add(this.EquipmentlistView);
             this.Name = "Equipment";
             this.Text = "Helmet";
@@ -272,5 +373,17 @@
         private ColumnHeader columnConstitution;
         private ColumnHeader columnIntellegence;
         private ColumnHeader columnLVL;
+        private ListView SelectedlistView;
+        private ColumnHeader columnSelectedName;
+        private ColumnHeader columnSelectedType;
+        private ColumnHeader columnSelectedLVL;
+        private ColumnHeader columnSelectedStrength;
+        private ColumnHeader columnSelectedDexterity;
+        private ColumnHeader columnSelectedConstitution;
+        private ColumnHeader columnSelectedIntellgence;
+        private Button SaveB;
+        private ComboBox comboBoxHelmet;
+        private ComboBox comboBoxArmor;
+        private ComboBox comboBoxWeapon;
     }
 }
