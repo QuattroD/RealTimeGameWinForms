@@ -31,9 +31,12 @@ namespace RealTimeGameWinForms
         public double Dexterity { get; set; }
         public double Constitution { get; set; }
         public double Intellisence { get; set; }
-       // public bool IsAlive { get; set; }
+        /*public bool IsAlive { get; set; }*/
+        [BsonIgnoreIfNull]
         public string? helmet { get; set; }
-        public string? armor { get; set; }     
+        [BsonIgnoreIfNull]
+        public string? armor { get; set; }
+        [BsonIgnoreIfNull]
         public string? weapon { get; set; }
 
         [BsonIgnoreIfNull]
@@ -55,7 +58,7 @@ namespace RealTimeGameWinForms
             this.manapool = manapool;
             this.MaxMana = manapool;
             this.magicdamage = magicdamage;
-           // this.IsAlive = true;
+            /*this.IsAlive = true;*/
             this.Strength = Strength;
             this.Dexterity = Dexterity;
             this.Constitution = Constitution;

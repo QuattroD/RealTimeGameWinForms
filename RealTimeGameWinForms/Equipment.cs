@@ -18,13 +18,27 @@ namespace RealTimeGameWinForms
         public string helmet = string.Empty;
         public string armor = string.Empty;
         public string weapon = string.Empty;
+        public string name = string.Empty;
         public Equipment()
         {
             InitializeComponent();
+            RealTimeGameWinForms test = new RealTimeGameWinForms();
+            var client = new MongoClient();
+            var database = client.GetDatabase("Army");
+            var collection = database.GetCollection<Unit>("Units");
+            var one = collection.Find(x => x.name == test.UserName()).FirstOrDefault();
+            if(one != null)
+            {
+                MessageBox.Show($"{one.helmet} {one.armor} {one.weapon}");
+            }
+            else
+            {
+                MessageBox.Show($"пусто");
+            }
         }
 
         private void EquipmentlistView_DoubleClick(object sender, EventArgs e)
-        {
+        {                     
             if (EquipmentlistView.SelectedItems.Count < 1) return;
             var item = EquipmentlistView.SelectedItems[0];
             SelectedlistView.Items.Add((ListViewItem)item.Clone());

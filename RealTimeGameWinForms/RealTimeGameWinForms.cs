@@ -396,7 +396,6 @@ namespace RealTimeGameWinForms
             var client = new MongoClient();
             var database = client.GetDatabase("Army");
             var collection = database.GetCollection<Unit>("Units");
-            var one = collection.Find(x => x.name == UnitsListBox.SelectedItem.ToString()).FirstOrDefault();
             if (invent.ShowDialog() == DialogResult.OK)
             {
                 var helmet = invent.helmet;
@@ -405,6 +404,11 @@ namespace RealTimeGameWinForms
                 var update = Builders<Unit>.Update.Set("helmet", helmet).Set("armor", armor).Set("weapon", weapon);
                 collection.UpdateOne(x => x.name == NametextBox.Text, update);
             }
+        }
+
+        public string UserName()
+        {
+            return NametextBox.Text;
         }
     }
 }
