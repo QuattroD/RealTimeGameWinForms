@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,9 @@ namespace RealTimeGameWinForms
 {
     public partial class Equipment : Form
     {
+        public string helmet = string.Empty;
+        public string armor = string.Empty;
+        public string weapon = string.Empty;
         public Equipment()
         {
             InitializeComponent();
@@ -25,20 +29,20 @@ namespace RealTimeGameWinForms
             var item = EquipmentlistView.SelectedItems[0];
             SelectedlistView.Items.Add((ListViewItem)item.Clone());
             EquipmentlistView.Items.Remove((ListViewItem)EquipmentlistView.SelectedItems[0]); 
-                switch (SelectedlistView.Items[0].SubItems[1].Text)
-                {
-                    case "Helmet":
-                        comboBoxHelmet.Items.Add(SelectedlistView.);
+            switch (item.SubItems[1].Text)
+            {
+                case "Helmet":
+                    comboBoxHelmet.Items.Add(item.SubItems[0].Text);
                     break;
 
-                    case "Armor":
-                        comboBoxArmor.Items.Add(SelectedlistView.SelectedItems.ToString());
+                case "Armor":
+                    comboBoxArmor.Items.Add(item.SubItems[0].Text);
                     break;
 
-                    case "Weapon":
-                    comboBoxWeapon.Items.Add(SelectedlistView.SelectedItems.ToString());
+                case "Weapon":
+                    comboBoxWeapon.Items.Add(item.SubItems[0].Text);
                     break;
-                }
+            }
         }
 
         private void SelectedlistView_DoubleClick(object sender, EventArgs e)
@@ -47,11 +51,28 @@ namespace RealTimeGameWinForms
             var item = SelectedlistView.SelectedItems[0];
             EquipmentlistView.Items.Add((ListViewItem)item.Clone());
             SelectedlistView.Items.Remove((ListViewItem)SelectedlistView.SelectedItems[0]);
+            switch (item.SubItems[1].Text)
+            {
+                case "Helmet":
+                    comboBoxHelmet.Items.Remove(item.SubItems[0].Text);
+                    break;
+
+                case "Armor":
+                    comboBoxArmor.Items.Remove(item.SubItems[0].Text);
+                    break;
+
+                case "Weapon":
+                    comboBoxWeapon.Items.Remove(item.SubItems[0].Text);
+                    break;
+            }
         }
 
         private void SaveB_Click(object sender, EventArgs e)
         {
-
+            DialogResult = DialogResult.OK;
+            helmet = comboBoxHelmet.Text;
+            armor = comboBoxArmor.Text;
+            weapon = comboBoxWeapon.Text;           
         }
     }
 }

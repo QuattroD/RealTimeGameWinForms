@@ -22,7 +22,7 @@ namespace RealTimeGameWinForms
         public int TotalExp { get; set; }
         public double health { get; set; }
         public double MaxHealth { get; set; }
-        public double armor { get; set; }
+        public double physicaldefence { get; set; }
         public double damage { get; set; }
         public double magicdamage { get; set; }
         public double manapool { get; set; }
@@ -31,26 +31,31 @@ namespace RealTimeGameWinForms
         public double Dexterity { get; set; }
         public double Constitution { get; set; }
         public double Intellisence { get; set; }
-        public bool IsAlive { get; set; }
+       // public bool IsAlive { get; set; }
+        public string? helmet { get; set; }
+        public string? armor { get; set; }     
+        public string? weapon { get; set; }
+
         [BsonIgnoreIfNull]
         [BsonIgnoreIfDefault]
         public List<Item> Items { get; set; }
+
         [BsonIgnoreIfNull]
         [BsonIgnoreIfDefault]
         public List<Skill> Skills { get; set; }
 
-        public Unit(string name, string Class, double health, double damage, double magicdamage, double armor, double manapool, double Strength, double Dexterity, double Constitution, double Intellisence, int LVL)
+        public Unit(string name, string Class, double health, double damage, double magicdamage, double physicaldefence, double manapool, double Strength, double Dexterity, double Constitution, double Intellisence, int LVL)
         {
             this.name = name;
             this.Class = Class;
             this.health = health;
             this.MaxHealth = this.health;
             this.damage = damage;
-            this.armor = armor;
+            this.physicaldefence = physicaldefence;
             this.manapool = manapool;
             this.MaxMana = manapool;
             this.magicdamage = magicdamage;
-            this.IsAlive = true;
+           // this.IsAlive = true;
             this.Strength = Strength;
             this.Dexterity = Dexterity;
             this.Constitution = Constitution;
@@ -60,26 +65,14 @@ namespace RealTimeGameWinForms
             this.LVL = 1;
             this.Currentexp = Currentexp;
             this.TotalExp = TotalExp;
+            this.helmet = helmet;
+            this.armor = armor;
+            this.weapon = weapon;
         }
 
         public void AddItem(Item item)
         {
             Items.Add(item);
         }
-
-        public void Attack(Unit unit)
-        {
-            if (unit.health - damage > 0)
-            {
-                unit.health -= damage;
-                Console.WriteLine($"the {name} attacked {unit.name} has hp={unit.health}");
-            }
-            else
-            {
-                IsAlive = false;
-                Console.WriteLine($"the {unit.name} was killed");
-            }
-        }
-
     }
 }

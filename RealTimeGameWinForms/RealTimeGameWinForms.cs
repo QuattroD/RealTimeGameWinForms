@@ -35,22 +35,7 @@ namespace RealTimeGameWinForms
             {
                 UnitsListBox.Items.Add(item.name);
             }
-            /*ShowUnitTable.ColumnCount = 7;
-            ShowUnitTable.RowCount = 13;
-            ShowUnitTable.RowHeadersWidth = 100;
-            ShowUnitTable.Rows[0].HeaderCell.Value = "Name";
-            ShowUnitTable.Rows[1].HeaderCell.Value = "Class";
-            ShowUnitTable.Rows[2].HeaderCell.Value = "Lvl";
-            ShowUnitTable.Rows[3].HeaderCell.Value = "Exp";
-            ShowUnitTable.Rows[4].HeaderCell.Value = "Health";
-            ShowUnitTable.Rows[5].HeaderCell.Value = "Armor";
-            ShowUnitTable.Rows[6].HeaderCell.Value = "Damage";
-            ShowUnitTable.Rows[7].HeaderCell.Value = "Magic damage";
-            ShowUnitTable.Rows[8].HeaderCell.Value = "Manapool";
-            ShowUnitTable.Rows[9].HeaderCell.Value = "Strength";
-            ShowUnitTable.Rows[10].HeaderCell.Value = "Dexterity";
-            ShowUnitTable.Rows[11].HeaderCell.Value = "Constitution";
-            ShowUnitTable.Rows[12].HeaderCell.Value = "Intelligence";*/
+            ShowUnitTable.DataSource = names;
         }
 
         
@@ -404,10 +389,22 @@ namespace RealTimeGameWinForms
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void InventoryB_Click(object sender, EventArgs e)
         {
-            Equipment test = new Equipment();
-            test.Show();
+            Equipment invent = new Equipment();
+            Unit unit = new Unit(NametextBox.Text, ChoiceUnit.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence, int.Parse(LVLtextBox.Text));
+            var client = new MongoClient();
+            var database = client.GetDatabase("Army");
+            var collection = database.GetCollection<Unit>("Units");
+            var one = collection.Find(x => x.name == UnitsListBox.SelectedItem.ToString()).FirstOrDefault();
+            if (invent.ShowDialog() == DialogResult.OK)
+            {
+                var helmet = invent.helmet;
+                var armor = invent.armor;
+                var weapon = invent.weapon;
+                var update = Builders<Unit>.Update.Set("helmet", helmet).Set("armor", armor).Set("weapon", weapon);
+                collection.UpdateOne(x => x.name == NametextBox.Text, update);
+            }
         }
     }
 }
