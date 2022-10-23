@@ -256,9 +256,7 @@ namespace RealTimeGameWinForms
                     TotalManaPool = Intellisence * 2;
                     break;
             }
-            Item items = new Item(ItemtextBox.Text, int.Parse(CounttextBox.Text));
             Unit unit = new Unit(NametextBox.Text, ChoiceUnit.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence, int.Parse(LVLtextBox.Text));
-            unit.Items.Add(items);
             var client = new MongoClient();
             var database = client.GetDatabase("Army");
             var collection = database.GetCollection<Unit>("Units");
@@ -391,24 +389,24 @@ namespace RealTimeGameWinForms
 
         private void InventoryB_Click(object sender, EventArgs e)
         {
-            Equipment invent = new Equipment();
-            Unit unit = new Unit(NametextBox.Text, ChoiceUnit.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence, int.Parse(LVLtextBox.Text));
             var client = new MongoClient();
             var database = client.GetDatabase("Army");
             var collection = database.GetCollection<Unit>("Units");
+            var one = collection.Find(x => x.name == UnitsListBox.SelectedItem.ToString()).FirstOrDefault();
+            Equipment invent = new Equipment();
+            invent.username = NametextBox.Text;
+            invent.stregth = one.Strength;
+            invent.dexterity = one.Dexterity;
+            invent.constitution = one.Constitution;
+            invent.intelligence = one.Intellisence;
             if (invent.ShowDialog() == DialogResult.OK)
-            {
+            {               
                 var helmet = invent.helmet;
                 var armor = invent.armor;
                 var weapon = invent.weapon;
                 var update = Builders<Unit>.Update.Set("helmet", helmet).Set("armor", armor).Set("weapon", weapon);
                 collection.UpdateOne(x => x.name == NametextBox.Text, update);
-            }
-        }
-
-        public string UserName()
-        {
-            return NametextBox.Text;
+            }          
         }
     }
 }

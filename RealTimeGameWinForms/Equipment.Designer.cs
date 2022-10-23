@@ -32,130 +32,218 @@
             "CONFESSOR HOOD",
             "Helmet",
             "High",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "30",
+            "50",
+            "55",
+            "245"}, -1);
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
             "CONFESSOR ARMOR",
             "Armor",
             "High",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "40",
+            "55",
+            "60",
+            "250"}, -1);
             System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
             "DIGGER\'S STAFF",
             "Weapon",
             "High",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "35",
+            "45",
+            "50",
+            "240"}, -1);
             System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
             "HAIMA GLINTSTONE CROWN",
             "Helmet",
             "Medium",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "20",
+            "30",
+            "45",
+            "235"}, -1);
             System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
             "BATTLEMAGE ROBE",
             "Armor",
-            "Medium"}, -1);
+            "Medium",
+            "30",
+            "45",
+            "50",
+            "240"}, -1);
             System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
             "LUSAT\'S GLINTSTONE STAFF",
             "Weapon",
-            "Medium"}, -1);
+            "Medium",
+            "25",
+            "35",
+            "40",
+            "225"}, -1);
             System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(new string[] {
             "CONSORT\'S MASK",
             "Helmet",
-            "Low"}, -1);
+            "Low",
+            "10",
+            "20",
+            "35",
+            "225"}, -1);
             System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem(new string[] {
             "CONSORT\'S ROBE",
             "Armor",
-            "Low"}, -1);
+            "Low",
+            "20",
+            "35",
+            "40",
+            "230"}, -1);
             System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem(new string[] {
             "METEORITE STAFF",
             "Weapon",
-            "Low"}, -1);
+            "Low",
+            "15",
+            "25",
+            "30",
+            "215"}, -1);
             System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem(new string[] {
             "BLACK WOLF MASK",
             "Helmet",
             "High",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "240",
+            "55",
+            "85",
+            "25"}, -1);
             System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem(new string[] {
             "BLAIDD\'S ARMOR",
             "Armor",
-            "High"}, -1);
+            "High",
+            "250",
+            "65",
+            "95",
+            "35"}, -1);
             System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem(new string[] {
             "BLAIDD\'S SWORD",
             "Weapon",
-            "High"}, -1);
+            "High",
+            "245",
+            "60",
+            "90",
+            "30"}, -1);
             System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem(new string[] {
             "CLEANROT HELM",
             "Helmet",
-            "Medium"}, -1);
+            "Medium",
+            "230",
+            "45",
+            "75",
+            "15"}, -1);
             System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem(new string[] {
             "CLEANROT ARMOR",
             "Armor",
-            "Medium"}, -1);
+            "Medium",
+            "235",
+            "50",
+            "80",
+            "20"}, -1);
             System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem(new string[] {
             "LONGSWORD",
             "Weapon",
-            "Medium"}, -1);
+            "Medium",
+            "237",
+            "52",
+            "82",
+            "22"}, -1);
             System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem(new string[] {
             "CUCKOO KNIGHT HELM",
             "Helmet",
-            "Low"}, -1);
+            "Low",
+            "220",
+            "35",
+            "65",
+            "5"}, -1);
             System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem(new string[] {
             "CUCKOO KNIGHT ARMOR",
             "Armor",
-            "Low"}, -1);
+            "Low",
+            "225",
+            "40",
+            "70",
+            "10"}, -1);
             System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem(new string[] {
             "ROTTEN CRYSTAL SWORD",
             "Weapon",
-            "Low"}, -1);
+            "Low",
+            "227",
+            "42",
+            "72",
+            "12"}, -1);
             System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem(new string[] {
             "DEPRAVED PERFUMER HEADSCARF",
             "Helmet",
-            "High"}, -1);
+            "High",
+            "45",
+            "240",
+            "70",
+            "60"}, -1);
             System.Windows.Forms.ListViewItem listViewItem20 = new System.Windows.Forms.ListViewItem(new string[] {
             "DEPRAVED PERFUMER ROBE",
             "Armor",
-            "High"}, -1);
+            "High",
+            "50",
+            "245",
+            "75",
+            "65"}, -1);
             System.Windows.Forms.ListViewItem listViewItem21 = new System.Windows.Forms.ListViewItem(new string[] {
             "SHORT SWORD",
             "Weapon",
-            "High"}, -1);
+            "High",
+            "52",
+            "247",
+            "77",
+            "67"}, -1);
             System.Windows.Forms.ListViewItem listViewItem22 = new System.Windows.Forms.ListViewItem(new string[] {
             "EXILE HOOD",
             "Helmet",
-            "Medium"}, -1);
+            "Medium",
+            "35",
+            "230",
+            "60",
+            "50"}, -1);
             System.Windows.Forms.ListViewItem listViewItem23 = new System.Windows.Forms.ListViewItem(new string[] {
             "EXILE ARMOR",
             "Armor",
-            "Medium"}, -1);
+            "Medium",
+            "40",
+            "235",
+            "65",
+            "55"}, -1);
             System.Windows.Forms.ListViewItem listViewItem24 = new System.Windows.Forms.ListViewItem(new string[] {
             "PARRYING DAGGER",
             "Weapon",
-            "Medium"}, -1);
+            "Medium",
+            "42",
+            "237",
+            "67",
+            "57"}, -1);
             System.Windows.Forms.ListViewItem listViewItem25 = new System.Windows.Forms.ListViewItem(new string[] {
             "GODSKIN APOSTLE HOOD",
             "Helmet",
-            "Low"}, -1);
+            "Low",
+            "25",
+            "220",
+            "50",
+            "40"}, -1);
             System.Windows.Forms.ListViewItem listViewItem26 = new System.Windows.Forms.ListViewItem(new string[] {
             "GODSKIN APOSTLE ROBE",
             "Armor",
-            "Low"}, -1);
+            "Low",
+            "30",
+            "225",
+            "55",
+            "45"}, -1);
             System.Windows.Forms.ListViewItem listViewItem27 = new System.Windows.Forms.ListViewItem(new string[] {
             "GREAT KNIFE",
             "Weapon",
-            "Low"}, -1);
+            "Low",
+            "32",
+            "227",
+            "57",
+            "47"}, -1);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Equipment));
             this.EquipmentlistView = new System.Windows.Forms.ListView();
             this.columnName = new System.Windows.Forms.ColumnHeader();
@@ -310,10 +398,10 @@
             // 
             // SaveB
             // 
-            this.SaveB.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.SaveB.Location = new System.Drawing.Point(875, 499);
+            this.SaveB.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SaveB.Location = new System.Drawing.Point(837, 371);
             this.SaveB.Name = "SaveB";
-            this.SaveB.Size = new System.Drawing.Size(90, 40);
+            this.SaveB.Size = new System.Drawing.Size(164, 90);
             this.SaveB.TabIndex = 2;
             this.SaveB.Text = "Save";
             this.SaveB.UseVisualStyleBackColor = true;

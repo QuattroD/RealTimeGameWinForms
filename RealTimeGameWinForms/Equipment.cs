@@ -19,43 +19,44 @@ namespace RealTimeGameWinForms
         public string armor = string.Empty;
         public string weapon = string.Empty;
         public string name = string.Empty;
+        public string username = string.Empty;
+        public double stregth = 0;
+        public double dexterity = 0;
+        public double constitution = 0;
+        public double intelligence = 0;
+
         public Equipment()
         {
             InitializeComponent();
-            RealTimeGameWinForms test = new RealTimeGameWinForms();
-            var client = new MongoClient();
-            var database = client.GetDatabase("Army");
-            var collection = database.GetCollection<Unit>("Units");
-            var one = collection.Find(x => x.name == test.UserName()).FirstOrDefault();
-            if(one != null)
-            {
-                MessageBox.Show($"{one.helmet} {one.armor} {one.weapon}");
-            }
-            else
-            {
-                MessageBox.Show($"пусто");
-            }
         }
 
         private void EquipmentlistView_DoubleClick(object sender, EventArgs e)
         {                     
             if (EquipmentlistView.SelectedItems.Count < 1) return;
             var item = EquipmentlistView.SelectedItems[0];
-            SelectedlistView.Items.Add((ListViewItem)item.Clone());
-            EquipmentlistView.Items.Remove((ListViewItem)EquipmentlistView.SelectedItems[0]); 
-            switch (item.SubItems[1].Text)
+             
+            if(stregth >= int.Parse(item.SubItems[3].Text) && dexterity >= int.Parse(item.SubItems[4].Text) && constitution >= int.Parse(item.SubItems[5].Text) && intelligence >= int.Parse(item.SubItems[6].Text))
             {
-                case "Helmet":
-                    comboBoxHelmet.Items.Add(item.SubItems[0].Text);
-                    break;
+                SelectedlistView.Items.Add((ListViewItem)item.Clone());
+                EquipmentlistView.Items.Remove((ListViewItem)EquipmentlistView.SelectedItems[0]);
+                switch (item.SubItems[1].Text)
+                {
+                    case "Helmet":
+                        comboBoxHelmet.Items.Add(item.SubItems[0].Text);
+                        break;
 
-                case "Armor":
-                    comboBoxArmor.Items.Add(item.SubItems[0].Text);
-                    break;
+                    case "Armor":
+                        comboBoxArmor.Items.Add(item.SubItems[0].Text);
+                        break;
 
-                case "Weapon":
-                    comboBoxWeapon.Items.Add(item.SubItems[0].Text);
-                    break;
+                    case "Weapon":
+                        comboBoxWeapon.Items.Add(item.SubItems[0].Text);
+                        break;
+                }
+            }
+            else
+            {
+                MessageBox.Show("недостаточно атрибутов");
             }
         }
 
