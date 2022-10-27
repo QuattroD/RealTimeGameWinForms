@@ -85,6 +85,7 @@
             this.Controls.Add(this.listBoxBlueTeam);
             this.Name = "Teams";
             this.Text = "Teams";
+            this.Load += new System.EventHandler(this.Teams_Load);
             this.ResumeLayout(false);
 
         }

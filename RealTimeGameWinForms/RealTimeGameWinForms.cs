@@ -22,7 +22,6 @@ namespace RealTimeGameWinForms
         public double Dexterity = 0;
         public double Constitution = 0;
         public double Intellisence = 0;
-        public int lvl = 1;
         public int Texp = 0;
         public RealTimeGameWinForms()
         {
@@ -127,7 +126,7 @@ namespace RealTimeGameWinForms
                     TotalManaPool = Intellisence;
                     
                     Warrior warrior = new Warrior(NametextBox.Text, ChoiceUnit.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence, int.Parse(LVLtextBox.Text));
-                    MessageBox.Show($"Имя - {warrior.name} \nЗдоровья - {warrior.health} \nУрон - {warrior.damage} \nМагический урон - {warrior.magicdamage} \nБроня - {warrior.armor} \nМана - {warrior.manapool}", "Юнит создан");
+                    MessageBox.Show($"Имя - {warrior.name} \nЗдоровья - {warrior.health} \nУрон - {warrior.damage} \nМагический урон - {warrior.magicdamage} \nБроня - {warrior.physicaldefence} \nМана - {warrior.manapool}", "Юнит создан");
                     warrior.AddItem(new Item(ItemtextBox.Text, int.Parse(CounttextBox.Text)));                  
                     mongoDB.AddToDB(warrior);
                     break;
@@ -139,7 +138,7 @@ namespace RealTimeGameWinForms
                     TotalPhysicalDefence = Dexterity * 1.5;
                     TotalManaPool = Intellisence * 1.5;
                     Rogue rogue = new Rogue(NametextBox.Text, ChoiceUnit.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence, int.Parse(LVLtextBox.Text));
-                    MessageBox.Show($"Имя - {rogue.name} \nЗдоровья - {rogue.health} \nУрон - {rogue.damage} \nМагический урон - {rogue.magicdamage} \nБроня - {rogue.armor} \nМана - {rogue.manapool}", "Юнит создан");
+                    MessageBox.Show($"Имя - {rogue.name} \nЗдоровья - {rogue.health} \nУрон - {rogue.damage} \nМагический урон - {rogue.magicdamage} \nБроня - {rogue.physicaldefence} \nМана - {rogue.manapool}", "Юнит создан");
                     rogue.AddItem(new Item(ItemtextBox.Text, int.Parse(CounttextBox.Text)));
                     mongoDB.AddToDB(rogue);
                     break;
@@ -151,7 +150,7 @@ namespace RealTimeGameWinForms
                     TotalPhysicalDefence = (Dexterity * 0.5) + Constitution;
                     TotalManaPool = Intellisence * 2;
                     Wizard wizard = new Wizard(NametextBox.Text, ChoiceUnit.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence, int.Parse(LVLtextBox.Text));
-                    MessageBox.Show($"Имя - {wizard.name} \nЗдоровья - {wizard.health} \nУрон - {wizard.damage} \nМагический урон - {wizard.magicdamage} \nБроня - {wizard.armor} \nМана - {wizard.manapool}", "Юнит создан");
+                    MessageBox.Show($"Имя - {wizard.name} \nЗдоровья - {wizard.health} \nУрон - {wizard.damage} \nМагический урон - {wizard.magicdamage} \nБроня - {wizard.physicaldefence} \nМана - {wizard.manapool}", "Юнит создан");
                     wizard.AddItem(new Item(ItemtextBox.Text, int.Parse(CounttextBox.Text)));
                     mongoDB.AddToDB(wizard);
                     break;
@@ -255,40 +254,34 @@ namespace RealTimeGameWinForms
         }
 
         private void B500exp_Click(object sender, EventArgs e)
-        {
-            SelectSkill selectSkill = new SelectSkill();
-            Item items = new Item(ItemtextBox.Text, int.Parse(CounttextBox.Text));
-            Skill skills = new Skill(selectSkill.skillName);
-            Unit unit = new Unit(NametextBox.Text, ChoiceUnit.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence, int.Parse(LVLtextBox.Text));
+        {        
             var client = new MongoClient();
             var database = client.GetDatabase("Army");
-            var collection = database.GetCollection<Unit>("Units");
+            var collection = database.GetCollection<Unit>("Units");           
+            var one = collection.Find(x => x.name == UnitsListBox.SelectedItem.ToString()).FirstOrDefault();
             progressEXP.Maximum = 1000 + 1000 * int.Parse(LVLtextBox.Text);
             if (progressEXP.Value == progressEXP.Maximum)
             {
-                LVLtextBox.Text = Convert.ToString(lvl + 1);                
-                progressEXP.Value = 0;
-                lvl++;
+                one.LVL++;
+                LVLtextBox.Text = Convert.ToString(one.LVL);                
+                progressEXP.Value = 0;               
             }
             else
             {
                 progressEXP.Value += 500;
+                Texp += 500;
             }
-            var updateEXP500 = Builders<Unit>.Update.Set("Currentexp", Convert.ToInt32(progressEXP.Value)).Set("LVL", Convert.ToInt32(LVLtextBox.Text));
+            var updateEXP500 = Builders<Unit>.Update.Set("Currentexp", Convert.ToInt32(progressEXP.Value)).Set("LVL", Convert.ToInt32(LVLtextBox.Text)).Set("TotalExp", Texp);
             collection.UpdateOne(x => x.name == NametextBox.Text, updateEXP500);
-            var one = collection.Find(x => x.name == UnitsListBox.SelectedItem.ToString()).FirstOrDefault();
-            ExpInfo.Text = $"{one.Currentexp}/{progressEXP.Maximum}";
+            ExpInfo.Text = $"{progressEXP.Value}/{progressEXP.Maximum}";
         }
 
         private void B1000exp_Click(object sender, EventArgs e)
         {
-            
-            SelectSkill selectSkill = new SelectSkill();
-            Unit unit = new Unit(NametextBox.Text, ChoiceUnit.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence, int.Parse(LVLtextBox.Text));
             var client = new MongoClient();
             var database = client.GetDatabase("Army");
             var collection = database.GetCollection<Unit>("Units");
-            var one = collection.Find(x => x.name == UnitsListBox.SelectedItem.ToString()).FirstOrDefault();;
+            var one = collection.Find(x => x.name == UnitsListBox.SelectedItem.ToString()).FirstOrDefault();
             progressEXP.Maximum = 1000 + 1000 * int.Parse(LVLtextBox.Text);
             if (progressEXP.Value >= progressEXP.Maximum)
             {
@@ -395,14 +388,20 @@ namespace RealTimeGameWinForms
                 var helmet = invent.helmet;
                 var armor = invent.armor;
                 var weapon = invent.weapon;
-                var update = Builders<Unit>.Update.Set("helmet", helmet).Set("armor", armor).Set("weapon", weapon);
-                collection.UpdateOne(x => x.name == NametextBox.Text, update);
+                var update_equip = Builders<Unit>.Update.Set("helmet", helmet).Set("armor", armor).Set("weapon", weapon);
+                collection.UpdateOne(x => x.name == NametextBox.Text, update_equip);
             }          
         }
 
         private void bteams_Click(object sender, EventArgs e)
         {
+            List<string> _units = new List<string>();
+            foreach(string items in UnitsListBox.Items)
+            {
+                _units.Add(items);
+            }
             Teams teams = new Teams();
+            _units.AddRange(teams.unitsTeams.ToList());
             if (teams.ShowDialog() == DialogResult.OK)
             {
 

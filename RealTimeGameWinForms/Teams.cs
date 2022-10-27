@@ -12,6 +12,7 @@ namespace RealTimeGameWinForms
 {
     public partial class Teams : Form
     {
+        public List<string> unitsTeams = new List<string>();
         public Teams()
         {
             InitializeComponent();
@@ -30,6 +31,14 @@ namespace RealTimeGameWinForms
             {
                 MessageBox.Show($"Нету доступных юнитов");
             }
+        }
+
+        private void Teams_Load(object sender, EventArgs e)
+        {
+            for (int i = 0; i < unitsTeams.Count; i++)
+            {
+                listBoxFreeUnits.Items.Add(unitsTeams[i]);
+            }               
         }
     }
 }
