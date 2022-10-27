@@ -32,34 +32,44 @@
             this.listBoxBlueTeam = new System.Windows.Forms.ListBox();
             this.listBoxFreeUnits = new System.Windows.Forms.ListBox();
             this.listBoxRedTeam = new System.Windows.Forms.ListBox();
+            this.Bauto = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBoxBlueTeam
             // 
             this.listBoxBlueTeam.FormattingEnabled = true;
             this.listBoxBlueTeam.ItemHeight = 15;
-            this.listBoxBlueTeam.Location = new System.Drawing.Point(35, 48);
+            this.listBoxBlueTeam.Location = new System.Drawing.Point(19, 46);
             this.listBoxBlueTeam.Name = "listBoxBlueTeam";
-            this.listBoxBlueTeam.Size = new System.Drawing.Size(176, 304);
+            this.listBoxBlueTeam.Size = new System.Drawing.Size(210, 304);
             this.listBoxBlueTeam.TabIndex = 0;
             // 
             // listBoxFreeUnits
             // 
             this.listBoxFreeUnits.FormattingEnabled = true;
             this.listBoxFreeUnits.ItemHeight = 15;
-            this.listBoxFreeUnits.Location = new System.Drawing.Point(309, 48);
+            this.listBoxFreeUnits.Location = new System.Drawing.Point(293, 46);
             this.listBoxFreeUnits.Name = "listBoxFreeUnits";
-            this.listBoxFreeUnits.Size = new System.Drawing.Size(176, 304);
+            this.listBoxFreeUnits.Size = new System.Drawing.Size(210, 304);
             this.listBoxFreeUnits.TabIndex = 1;
             // 
             // listBoxRedTeam
             // 
             this.listBoxRedTeam.FormattingEnabled = true;
             this.listBoxRedTeam.ItemHeight = 15;
-            this.listBoxRedTeam.Location = new System.Drawing.Point(586, 48);
+            this.listBoxRedTeam.Location = new System.Drawing.Point(570, 46);
             this.listBoxRedTeam.Name = "listBoxRedTeam";
-            this.listBoxRedTeam.Size = new System.Drawing.Size(176, 304);
+            this.listBoxRedTeam.Size = new System.Drawing.Size(210, 304);
             this.listBoxRedTeam.TabIndex = 2;
+            // 
+            // Bauto
+            // 
+            this.Bauto.Location = new System.Drawing.Point(350, 393);
+            this.Bauto.Name = "Bauto";
+            this.Bauto.Size = new System.Drawing.Size(110, 34);
+            this.Bauto.TabIndex = 3;
+            this.Bauto.Text = "Autodistribution";
+            this.Bauto.UseVisualStyleBackColor = true;
             // 
             // Teams
             // 
@@ -68,6 +78,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Bauto);
             this.Controls.Add(this.listBoxRedTeam);
             this.Controls.Add(this.listBoxFreeUnits);
             this.Controls.Add(this.listBoxBlueTeam);
@@ -82,5 +93,6 @@
         private ListBox listBoxBlueTeam;
         private ListBox listBoxFreeUnits;
         private ListBox listBoxRedTeam;
+        private Button Bauto;
     }
 }

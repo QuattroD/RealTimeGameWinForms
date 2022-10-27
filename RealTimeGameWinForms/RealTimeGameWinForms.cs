@@ -62,9 +62,6 @@ namespace RealTimeGameWinForms
                     IntellisenceNumeric.Minimum = 10;
                     IntellisenceNumeric.Maximum = 50;
                     IntellisenceNumeric.Value = 10;
-
-                    // Avatar.Load(url: @"https://static.cdprojektred.com/playgwent.com/news/big/playgwent.com_en_1535708549_5b890d852fb152.36885555.jpg");
-                    Avatar.SizeMode = PictureBoxSizeMode.StretchImage;
                     break;
 
                 case 1:
@@ -86,9 +83,6 @@ namespace RealTimeGameWinForms
                     IntellisenceNumeric.Minimum = 15;
                     IntellisenceNumeric.Maximum = 70;
                     IntellisenceNumeric.Value = 15;
-
-                    // Avatar.Load(url: @"https://staticctf.akamaized.net/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/2EFsSmHHzSOjl3u7zcw1V3/5d4c2b629ca15a6044fda6bbbd6c2d07/acrogue_remastered_hero_mobile_Mobile-v2.jpg");
-                    Avatar.SizeMode = PictureBoxSizeMode.StretchImage;
                     break;
 
                 case 2:
@@ -110,9 +104,6 @@ namespace RealTimeGameWinForms
                     IntellisenceNumeric.Minimum = 35;
                     IntellisenceNumeric.Maximum = 250;
                     IntellisenceNumeric.Value = 35;
-
-                    // Avatar.Load(url: @"http://www.cinema.com.my/images/news/2016/7g_warcraftnew00.jpg");
-                    Avatar.SizeMode = PictureBoxSizeMode.StretchImage;
                     break;
             }
         }
@@ -394,7 +385,7 @@ namespace RealTimeGameWinForms
             var collection = database.GetCollection<Unit>("Units");
             var one = collection.Find(x => x.name == UnitsListBox.SelectedItem.ToString()).FirstOrDefault();
             Equipment invent = new Equipment();
-            invent.username = NametextBox.Text;
+            invent.username = one.name;
             invent.stregth = one.Strength;
             invent.dexterity = one.Dexterity;
             invent.constitution = one.Constitution;
@@ -407,6 +398,15 @@ namespace RealTimeGameWinForms
                 var update = Builders<Unit>.Update.Set("helmet", helmet).Set("armor", armor).Set("weapon", weapon);
                 collection.UpdateOne(x => x.name == NametextBox.Text, update);
             }          
+        }
+
+        private void bteams_Click(object sender, EventArgs e)
+        {
+            Teams teams = new Teams();
+            if(teams.ShowDialog() == DialogResult.OK)
+            {
+
+            }
         }
     }
 }

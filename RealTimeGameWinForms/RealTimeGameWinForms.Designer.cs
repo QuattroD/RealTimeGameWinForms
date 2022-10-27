@@ -40,7 +40,6 @@
             this.IntellisenceLabel = new System.Windows.Forms.Label();
             this.IntellisenceNumeric = new System.Windows.Forms.NumericUpDown();
             this.Create = new System.Windows.Forms.Button();
-            this.Avatar = new System.Windows.Forms.PictureBox();
             this.UnitsListBox = new System.Windows.Forms.ListBox();
             this.NameLabel = new System.Windows.Forms.Label();
             this.NametextBox = new System.Windows.Forms.TextBox();
@@ -62,11 +61,11 @@
             this.CounttextBox = new System.Windows.Forms.TextBox();
             this.Countlabel = new System.Windows.Forms.Label();
             this.InvemtoryB = new System.Windows.Forms.Button();
+            this.bteams = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.StrengthNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DexterityNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConstitutionNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IntellisenceNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Avatar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ShowUnitTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -181,15 +180,6 @@
             this.Create.UseVisualStyleBackColor = true;
             this.Create.Click += new System.EventHandler(this.Create_Click);
             // 
-            // Avatar
-            // 
-            this.Avatar.Location = new System.Drawing.Point(948, 365);
-            this.Avatar.Name = "Avatar";
-            this.Avatar.Size = new System.Drawing.Size(187, 184);
-            this.Avatar.TabIndex = 11;
-            this.Avatar.TabStop = false;
-            this.Avatar.Visible = false;
-            // 
             // UnitsListBox
             // 
             this.UnitsListBox.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -280,7 +270,7 @@
             // 
             // B500exp
             // 
-            this.B500exp.Location = new System.Drawing.Point(148, 299);
+            this.B500exp.Location = new System.Drawing.Point(148, 265);
             this.B500exp.Name = "B500exp";
             this.B500exp.Size = new System.Drawing.Size(75, 23);
             this.B500exp.TabIndex = 27;
@@ -291,7 +281,7 @@
             // 
             // B1000exp
             // 
-            this.B1000exp.Location = new System.Drawing.Point(229, 299);
+            this.B1000exp.Location = new System.Drawing.Point(229, 265);
             this.B1000exp.Name = "B1000exp";
             this.B1000exp.Size = new System.Drawing.Size(75, 23);
             this.B1000exp.TabIndex = 28;
@@ -303,7 +293,7 @@
             // progressEXP
             // 
             this.progressEXP.BackColor = System.Drawing.Color.Gray;
-            this.progressEXP.Location = new System.Drawing.Point(148, 270);
+            this.progressEXP.Location = new System.Drawing.Point(148, 236);
             this.progressEXP.Name = "progressEXP";
             this.progressEXP.Size = new System.Drawing.Size(100, 20);
             this.progressEXP.TabIndex = 29;
@@ -314,16 +304,16 @@
             // 
             this.ShowUnitTable.AllowUserToDeleteRows = false;
             this.ShowUnitTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ShowUnitTable.Location = new System.Drawing.Point(438, 4);
+            this.ShowUnitTable.Location = new System.Drawing.Point(310, 10);
             this.ShowUnitTable.Name = "ShowUnitTable";
             this.ShowUnitTable.ReadOnly = true;
             this.ShowUnitTable.RowTemplate.Height = 25;
-            this.ShowUnitTable.Size = new System.Drawing.Size(486, 315);
+            this.ShowUnitTable.Size = new System.Drawing.Size(825, 312);
             this.ShowUnitTable.TabIndex = 31;
             // 
             // LVLtextBox
             // 
-            this.LVLtextBox.Location = new System.Drawing.Point(188, 247);
+            this.LVLtextBox.Location = new System.Drawing.Point(188, 213);
             this.LVLtextBox.Multiline = true;
             this.LVLtextBox.Name = "LVLtextBox";
             this.LVLtextBox.ReadOnly = true;
@@ -340,7 +330,7 @@
             this.LVLlabel.BackColor = System.Drawing.Color.Transparent;
             this.LVLlabel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LVLlabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LVLlabel.Location = new System.Drawing.Point(148, 247);
+            this.LVLlabel.Location = new System.Drawing.Point(148, 213);
             this.LVLlabel.Name = "LVLlabel";
             this.LVLlabel.Size = new System.Drawing.Size(34, 20);
             this.LVLlabel.TabIndex = 33;
@@ -353,7 +343,7 @@
             this.ExpInfo.BackColor = System.Drawing.Color.Transparent;
             this.ExpInfo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ExpInfo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ExpInfo.Location = new System.Drawing.Point(272, 270);
+            this.ExpInfo.Location = new System.Drawing.Point(272, 236);
             this.ExpInfo.Name = "ExpInfo";
             this.ExpInfo.Size = new System.Drawing.Size(0, 20);
             this.ExpInfo.TabIndex = 34;
@@ -361,7 +351,7 @@
             // SelectSkills
             // 
             this.SelectSkills.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SelectSkills.Location = new System.Drawing.Point(148, 337);
+            this.SelectSkills.Location = new System.Drawing.Point(148, 303);
             this.SelectSkills.Name = "SelectSkills";
             this.SelectSkills.Size = new System.Drawing.Size(156, 72);
             this.SelectSkills.TabIndex = 35;
@@ -401,13 +391,23 @@
             // 
             // InvemtoryB
             // 
-            this.InvemtoryB.Location = new System.Drawing.Point(308, 441);
+            this.InvemtoryB.Location = new System.Drawing.Point(148, 381);
             this.InvemtoryB.Name = "InvemtoryB";
-            this.InvemtoryB.Size = new System.Drawing.Size(75, 23);
+            this.InvemtoryB.Size = new System.Drawing.Size(156, 23);
             this.InvemtoryB.TabIndex = 39;
             this.InvemtoryB.Text = "Inventory";
             this.InvemtoryB.UseVisualStyleBackColor = true;
             this.InvemtoryB.Click += new System.EventHandler(this.InventoryB_Click);
+            // 
+            // bteams
+            // 
+            this.bteams.Location = new System.Drawing.Point(148, 413);
+            this.bteams.Name = "bteams";
+            this.bteams.Size = new System.Drawing.Size(156, 23);
+            this.bteams.TabIndex = 40;
+            this.bteams.Text = "Teams";
+            this.bteams.UseVisualStyleBackColor = true;
+            this.bteams.Click += new System.EventHandler(this.bteams_Click);
             // 
             // RealTimeGameWinForms
             // 
@@ -415,7 +415,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1147, 561);
+            this.ClientSize = new System.Drawing.Size(1147, 512);
+            this.Controls.Add(this.bteams);
             this.Controls.Add(this.InvemtoryB);
             this.Controls.Add(this.CounttextBox);
             this.Controls.Add(this.Countlabel);
@@ -437,7 +438,6 @@
             this.Controls.Add(this.NametextBox);
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.UnitsListBox);
-            this.Controls.Add(this.Avatar);
             this.Controls.Add(this.Create);
             this.Controls.Add(this.IntellisenceLabel);
             this.Controls.Add(this.IntellisenceNumeric);
@@ -456,7 +456,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DexterityNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConstitutionNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IntellisenceNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Avatar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ShowUnitTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -476,7 +475,6 @@
         private Label IntellisenceLabel;
         private NumericUpDown IntellisenceNumeric;
         private Button Create;
-        private PictureBox Avatar;
         private ListBox UnitsListBox;
         private Label NameLabel;
         private TextBox NametextBox;
@@ -498,5 +496,6 @@
         private TextBox CounttextBox;
         private Label Countlabel;
         private Button InvemtoryB;
+        private Button bteams;
     }
 }
