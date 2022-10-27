@@ -401,7 +401,10 @@ namespace RealTimeGameWinForms
                 _units.Add(items);
             }
             Teams teams = new Teams();
-            _units.AddRange(teams.unitsTeams.ToList());
+            foreach(var item in _units)
+            {
+                teams.unitsTeams.Add(item);
+            }
             if (teams.ShowDialog() == DialogResult.OK)
             {
 
