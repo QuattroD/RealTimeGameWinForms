@@ -89,5 +89,19 @@ namespace RealTimeGameWinForms
             armor = comboBoxArmor.Text;
             weapon = comboBoxWeapon.Text;           
         }
+
+        private void Equipment_Load(object sender, EventArgs e)
+        {
+            var client = new MongoClient();
+            var database = client.GetDatabase("Army");
+            var collection = database.GetCollection<Unit>("Units");
+            var one = collection.Find(x => x.name == username).FirstOrDefault();
+            if (one != null)
+            {
+                comboBoxHelmet.Text = one.helmet;
+                comboBoxArmor.Text = one.armor;
+                comboBoxWeapon.Text = one.weapon;
+            }
+        }
     }
 }

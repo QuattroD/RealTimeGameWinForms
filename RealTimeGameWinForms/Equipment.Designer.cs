@@ -447,6 +447,7 @@
             this.Controls.Add(this.EquipmentlistView);
             this.Name = "Equipment";
             this.Text = "Helmet";
+            this.Load += new System.EventHandler(this.Equipment_Load);
             this.ResumeLayout(false);
 
         }

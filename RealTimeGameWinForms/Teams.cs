@@ -16,5 +16,20 @@ namespace RealTimeGameWinForms
         {
             InitializeComponent();
         }
+
+        private void Bauto_Click(object sender, EventArgs e)
+        {
+            if(listBoxFreeUnits.Items.Count != 0)
+            {
+                for (int i = 0; i < listBoxFreeUnits.Items.Count; i++)
+                {
+
+                }
+            }
+            else
+            {
+                MessageBox.Show($"Нету доступных юнитов");
+            }
+        }
     }
 }

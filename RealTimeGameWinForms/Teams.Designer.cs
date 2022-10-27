@@ -70,6 +70,7 @@
             this.Bauto.TabIndex = 3;
             this.Bauto.Text = "Autodistribution";
             this.Bauto.UseVisualStyleBackColor = true;
+            this.Bauto.Click += new System.EventHandler(this.Bauto_Click);
             // 
             // Teams
             // 

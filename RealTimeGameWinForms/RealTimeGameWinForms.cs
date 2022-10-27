@@ -403,7 +403,7 @@ namespace RealTimeGameWinForms
         private void bteams_Click(object sender, EventArgs e)
         {
             Teams teams = new Teams();
-            if(teams.ShowDialog() == DialogResult.OK)
+            if (teams.ShowDialog() == DialogResult.OK)
             {
 
             }
