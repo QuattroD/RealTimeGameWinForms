@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,10 +23,11 @@ namespace RealTimeGameWinForms
         {
             if(listBoxFreeUnits.Items.Count != 0)
             {
-                for (int i = 0; i < listBoxFreeUnits.Items.Count; i++)
-                {
-
-                }
+                var client = new MongoClient();
+                var database = client.GetDatabase("Army");
+                var collection = database.GetCollection<Unit>("Units");
+                var one = collection.Find(x => x.name == listBoxFreeUnits.SelectedItem.ToString()).FirstOrDefault();
+                
             }
             else
             {

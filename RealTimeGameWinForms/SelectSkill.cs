@@ -20,8 +20,8 @@ namespace RealTimeGameWinForms
         
         private void Skills_1_Click(object sender, EventArgs e)
         {            
-            skillName = "Mist Coil";
             DialogResult = DialogResult.OK;
+            skillName = "Mist Coil";
         }
 
         private void Skills_2_Click(object sender, EventArgs e)

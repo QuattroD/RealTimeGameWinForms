@@ -314,42 +314,10 @@ namespace RealTimeGameWinForms
 
         private void SelectSkills_Click(object sender, EventArgs e)
         {
-            Strength = Convert.ToDouble(StrengthNumeric.Value);
-            Dexterity = Convert.ToDouble(DexterityNumeric.Value);
-            Constitution = Convert.ToDouble(ConstitutionNumeric.Value);
-            Intellisence = Convert.ToDouble(IntellisenceNumeric.Value);
-            switch (UnitsListBox.SelectedIndex)
-            {
-                case 0:
-                    TotalHealth = (Strength * 2) + (Constitution * 10);
-                    TotalDamage = (Strength * 5) + Dexterity;
-                    TotalMagicDamage = Intellisence;
-                    TotalPhysicalDefence = Dexterity + (Constitution * 2);
-                    TotalManaPool = Intellisence;
-                    break;
-
-                case 1:
-                    TotalHealth = Strength + (Constitution * 6);
-                    TotalDamage = (Strength * 2) + (Dexterity * 4);
-                    TotalMagicDamage = Intellisence * 2;
-                    TotalPhysicalDefence = Dexterity * 1.5;
-                    TotalManaPool = Intellisence * 1.5;
-                    break;
-
-                case 2:
-                    TotalHealth = Strength + (Constitution * 3);
-                    TotalDamage = Strength * 2;
-                    TotalMagicDamage = Intellisence * 5;
-                    TotalPhysicalDefence = (Dexterity * 0.5) + Constitution;
-                    TotalManaPool = Intellisence * 2;
-                    break;
-            }
             SelectSkill selectSkill = new SelectSkill();          
-            Unit unit = new Unit(NametextBox.Text, ChoiceUnit.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence, int.Parse(LVLtextBox.Text));
             var client = new MongoClient();
             var database = client.GetDatabase("Army");
             var collection = database.GetCollection<Unit>("Units");
-            var one = collection.Find(x => x.name == UnitsListBox.SelectedItem.ToString()).FirstOrDefault();
             if (selectSkill.ShowDialog() == DialogResult.OK)
             {                
                 Skill skills = new Skill(selectSkill.skillName);
