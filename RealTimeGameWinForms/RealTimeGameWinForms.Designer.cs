@@ -304,11 +304,11 @@
             // 
             this.ShowUnitTable.AllowUserToDeleteRows = false;
             this.ShowUnitTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ShowUnitTable.Location = new System.Drawing.Point(310, 10);
+            this.ShowUnitTable.Location = new System.Drawing.Point(344, 10);
             this.ShowUnitTable.Name = "ShowUnitTable";
             this.ShowUnitTable.ReadOnly = true;
             this.ShowUnitTable.RowTemplate.Height = 25;
-            this.ShowUnitTable.Size = new System.Drawing.Size(825, 312);
+            this.ShowUnitTable.Size = new System.Drawing.Size(791, 312);
             this.ShowUnitTable.TabIndex = 31;
             // 
             // LVLtextBox
