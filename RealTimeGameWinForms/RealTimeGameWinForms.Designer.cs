@@ -308,7 +308,7 @@
             this.ShowUnitTable.Name = "ShowUnitTable";
             this.ShowUnitTable.ReadOnly = true;
             this.ShowUnitTable.RowTemplate.Height = 25;
-            this.ShowUnitTable.Size = new System.Drawing.Size(791, 312);
+            this.ShowUnitTable.Size = new System.Drawing.Size(791, 223);
             this.ShowUnitTable.TabIndex = 31;
             // 
             // LVLtextBox

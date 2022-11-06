@@ -43,7 +43,7 @@ namespace RealTimeGameWinForms
             }
             else
             {
-                MessageBox.Show($"Нету доступных юнитов");
+                MessageBox.Show($"Нету доступных юнитов", "Внимание");
             }
         }
 
