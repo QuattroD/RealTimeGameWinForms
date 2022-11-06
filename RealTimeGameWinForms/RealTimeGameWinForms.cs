@@ -245,12 +245,25 @@ namespace RealTimeGameWinForms
                     TotalPhysicalDefence = (Dexterity * 0.5) + Constitution;
                     TotalManaPool = Intellisence * 2;
                     break;
-            }
-            Unit unit = new Unit(NametextBox.Text, ChoiceUnit.Text, TotalHealth, TotalDamage, TotalMagicDamage, TotalPhysicalDefence, TotalManaPool, Strength, Dexterity, Constitution, Intellisence, int.Parse(LVLtextBox.Text));
+            }            
             var client = new MongoClient();
             var database = client.GetDatabase("Army");
             var collection = database.GetCollection<Unit>("Units");
-            collection.ReplaceOne(x => x.name == NametextBox.Text, unit);
+            var one = collection.Find(x => x.name == UnitsListBox.SelectedItem.ToString()).FirstOrDefault();
+            var updatecharacter = Builders<Unit>.Update.Set("LVL", Convert.ToInt32(LVLtextBox.Text))
+                                                       .Set("Currentexp", progressEXP.Value)
+                                                       .Set("TotalExp", Texp)
+                                                       .Set("health", TotalHealth)
+                                                       .Set("MaxHealth", TotalHealth)
+                                                       .Set("physicaldefence", TotalPhysicalDefence)
+                                                       .Set("damage", TotalDamage)
+                                                       .Set("magicdamage", TotalMagicDamage)
+                                                       .Set("manapool", TotalManaPool)
+                                                       .Set("MaxMana", TotalManaPool)
+                                                       .Set("Strength", Strength)
+                                                       .Set("Dexterity", Dexterity)
+                                                       .Set("Constitution", Constitution)
+                                                       .Set("Intellisence", Intellisence);
         }
 
         private void B500exp_Click(object sender, EventArgs e)
