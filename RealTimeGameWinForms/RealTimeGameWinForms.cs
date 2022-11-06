@@ -220,7 +220,7 @@ namespace RealTimeGameWinForms
             Dexterity = Convert.ToDouble(DexterityNumeric.Value);
             Constitution = Convert.ToDouble(ConstitutionNumeric.Value);
             Intellisence = Convert.ToDouble(IntellisenceNumeric.Value);
-            switch (UnitsListBox.SelectedIndex)
+            switch (ChoiceUnit.SelectedIndex)
             {
                 case 0:
                     TotalHealth = (Strength * 2) + (Constitution * 10);
